@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <!--[if mso]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />   
+    <![endif]-->
+    <!--[if gte mso 9]>
+        <style>
+            sup { font-size: 100% !important; }
+        </style> 
+    <![endif]-->
+    <!--[if gtemso 9]><xml>
+    <o:OfficeDocumentSettings>  
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml><![endif]-->
+    <title></title>
+    <style type="text/css">
+        /*    Outlook.com fixes*/
+        .ExternalClass {
+            width: 100%;
+        }
+        .ExternalClass,
+        .ExternalClass font,
+        .ExternalClass td {
+            line-height: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: 100%;
+            /*    fixes resize in iOS*/
+            -ms-text-size-adjust: 100%;
+            /*    fixes resize in Windows Mobile */
+            -webkit-font-smoothing: antialiased;
+            font-family: arial, sans-serif;
+            font-weight: normal;
+            font-size: 16px;
+        }
+        body.outlook img {
+            width: auto !important;
+            max-width: none !important;
+        }
+        ul,
+        li {
+            padding: 0;
+        }
+        a {
+            color: inherit;
+            font-size: inherit;
+        }
+        a:link {
+            color: #333333;
+        }
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+        table td {
+            border-collapse: collapse;
+        }
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0px;
+            mso-table-rspace: 0px;
+        }
+        td,
+        a,
+        span {
+            border-collapse: collapse;
+        }
+        sup {
+            font-size: 60%;
+            line-height: 55%;
+            vertical-align: 160%;
+            white-space: nowrap;
+        }
+        .reflink {
+            color: #666666;
+            color: #666666 !important;
+            text-decoration: none !important;
+        }
+        .contact a {
+            color: #666666 !important;
+            text-decoration: none !important;
+        }
+        /* use when outlook is turning links a different color */
+        span.MsoHyperlink,
+        span.MsoHyperlink a {
+            mso-style-priority: 100 !important;
+            color: #36afe1;
+            color: #36afe1 !important;
+            text-decoration: underline;
+            text-decoration: underline !important;
+        }
+        span.MsoHyperlinkW,
+        span.MsoHyperlinkW a {
+            mso-style-priority: 100 !important;
+            color: #FFFFFF;
+            color: #FFFFFF !important;
+            text-decoration: none;
+            text-decoration: none !important;
+        }
+        a:link {
+            color: #666666;
+            text-decoration: none !important;
+        }
+        /* gmail fix when things blue */
+        u+#body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+        /* for a button with an image */
+        .chevron {
+            display: inline-block;
+            font-size: 12px;
+            color: #000000;
+            line-height: 44px;
+            padding-left: 20px;
+            vertical-align: middle;
+        }
+        /* if outlook is lowering a superscript add this */
+        .raiseUp {
+            mso-text-raise: 40% !important;
+        }
+        .showMobile {
+            max-height: 0;
+            /* Gmail*/
+            display: none;
+            /* Generic*/
+            mso-hide: all;
+            /* Outlook clients*/
+            overflow: hidden;
+            /* Generic */
+            /* font-size:0;  Be careful with this one, only use if absolutely required */
+        }
+        @media only screen and (max-width: 480px) {
+            .mobile380 {
+                width: 375px !important;
+                min-width: 375px !important;
+            }
+            .noBord {
+                border: none !important;
+            }
+            .mobileMax {
+                display: table !important;
+                width: 100% !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .mobileMaxcenter {
+                display: table !important;
+                width: 100% !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                text-align: center !important;
+            }
+            .imgMax {
+                width: 100% !important;
+                height: auto !important;
+                max-height: none !important;
+            }
+            .padd0 {
+                padding: 0 !important;
+            }
+            .padd10 {
+                padding: 10px !important;
+            }
+            .padd25 {
+                padding: 10px 25px !important;
+            }
+            .font18 {
+                font-size: 18px !important;
+                line-height: 22px !important;
+            }
+            .mobileHide {
+                display: none !important;
+                font-size: 0 !important;
+                max-height: 0 !important;
+                line-height: 0 !important;
+                mso-hide: all !important;
+                padding: 0 10px !important;
+            }
+            .mobileShow {
+                display: block !important;
+                font-size: auto !important;
+                max-height: none !important;
+                line-height: auto !important;
+            }
+            .textCenter {
+                text-align: center !important;
+            }
+            .linktable {
+                width: 100% !important;
+            }
+            .hideMobile {
+                display: none;
+                /* Generic*/
+                mso-hide: all;
+                /* Outlook clients*/
+                overflow: hidden;
+                /* Generic */
+                /* font-size:0;  Be careful with this one, only use if absolutely required */
+            }
+            .showMobile {
+                max-height: auto;
+                /* Gmail*/
+                display: inherit;
+                /* Generic*/
+                mso-hide: none;
+                /* Outlook clients*/
+                overflow: visible;
+                /* Generic */
+            }
+            .mobileHalf {
+                width: 155px !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .btnLine {
+                width: 20px !important;
+                display: inlinle-block !important;
+            }
+            .btnWidth {
+                width: 182px !important;
+                font-size: 10px !important;
+            }
+            .btnLogo {
+                padding: 13px 0 0 15px !important;
+            }
+            .middleHeader {
+                padding: 2px !important;
+                width: 43px !important;
+            }
+            .bulletQuestions {
+                background-color: #ffd821 !important;
+                width: 329px !important;
+                margin: 0 auto !important;
+            }
+            .amgenFoot {
+                width: 273px !important;
+                max-width: 273px !important;
+            }
+            .footerText {
+                line-height: 16px !important;
+                width: 100% !important;
+            }
+            .aimovigFoot {
+                width: 100% !important;
+            }
+            .experienceSection {
+                padding: 15px 0 15px 0 !important;
+                text-align: center !important;
+            }
+            .experienceText {
+                padding: 27px 0 17px 25px !important;
+                text-align: left !important;
+                line-height: 28px !important;
+            }
+            .mobleExperienceText {
+                width: 95% !important;
+                padding: 0px 0 0px 0 !important;
+            }
+            .mobilePad {
+                padding: 15px 0 15px 0 !important;
+            }
+            .mobileFace {
+                width: 50% !important;
+                display: table !important;
+            }
+            .mobileMicrophone {
+                font-size: 30px !important;
+                line-height: 28px !important;
+            }
+            .mobileExperience {
+                padding: 0 16px 0 !important;
+            }
+            .joinNetworkPad {
+                padding: 20px 21px 20px !important;
+            }
+            .footerWidth {
+                width: 100% !important;
+            }
+            .headerclass160 {
+                width: 160px !important;
+            }
+        }
+    </style>
+    <!--[if mso]>
+<style type="text/css">
+.fallback-text {font-family: Arial, sans-serif !important;}
+</style>
+<![endif]-->
+</head>
+<body style="margin:0 auto; height:100%; background-color:#ffffff;">
+    <table width="100%" class="mobile380" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="width:100%; min-width:650px;">
+        <!--PREHEADER START
+        <tr>
+            <td>
+                <table width="600" class="mobile380" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation">
+                    <tr>
+                        <td style="margin: 0; margin-bottom: 0; padding: 0 0 0 0; line-height: 15px; mso-line-height-rule: exactly;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td width="600" align="center" style="vertical-align: middle; margin: 0 0 0 0; padding: 0 0 0 0; ">&lt;&lt;pre-header&gt;&gt;</td>
+                    </tr>
+                    <tr>
+                        <td style="margin: 0; margin-bottom: 0; padding: 0 0 0 0; line-height: 15px; mso-line-height-rule: exactly;">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        PREHEADER END-->
+        <tr>
+            <td width="100%" class="mobile380" align="center" valign="top" style="padding:0px 0px 0px 0px;">
+                <table width="600" class="mobile380" bgcolor="#f1f2f2" border="0" cellpadding="0" cellspacing="0" align="center" role="presentation" style="padding:0 0px 0 0px;">
+                    <tr>
+                        <td  width="340" class="headerclass160" align="left" valign="middle" style="padding:0 10px 0 10px;">
+                            <a href="https://www.aimovig.com/" target="_blank" alias="" alt="Aimovig Home"><img src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/img_hero_logo.jpg" width="130" border="0" alt="Logo: Aimovig® (erenumab-aooe)" style="display:block; font-size:12px; color:#000000;" /></a>
+                        </td>
+                        <td class="showMobile" style="mso-hide:all;">
+                            <table class="showMobile" valign="middle" cellpadding="0" cellspacing="0" border="0" align="right" role="presentation" style="padding:0 0 73px 10px;mso-hide:all;">
+                                <tr>
+                                    <td class="showMobile" align="right" valign="middle" width="180" style="mso-hide:all;">
+                                        <a target="_blank" href="https://www.pi.amgen.com/united_states/Aimovig/Aimovig_pi_hcp_english.pdf" alias="Prescribe button" style="vertical-align:middle; font-size:16px; font-family: Arial, sans-serif; text-align:center; font-weight: bold; color:#ffffff; text-decoration: none; mso-hide:all;"><img class="" valign="middle" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/prescribe_m.png" width="205" border="0" alt="Prescribe button" style="display:inline-block; font-size:0px;vertical-align:middle; padding:0 0 1px 0px;mso-hide:all;" /></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="showMobile" align="right" valign="middle" width="180" style="mso-hide:all;">
+                                        <a target="_blank" href="https://www.pi.amgen.com/united_states/Aimovig/Aimovig_ppi_pt_english.pdf" alias="Patient Button" style="vertical-align:middle; font-size:16px; font-family: Arial, sans-serif; text-align:center; font-weight: bold; color:#ffffff;text-decoration: none; mso-hide:all;"><img class="" valign="middle" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/patient_m.png" width="205" border="0" alt="Patient Button" style="display:inline-block; font-size:0px;vertical-align:middle;mso-hide:all;" /></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td width="260" class="hideMobile" align="right" valign="middle" >
+                            <table width="100%" class="hideMobile" cellpadding="0" cellspacing="0" border="0" align="right" role="presentation">
+                                <tr>
+                                    <td class="hideMobile" align="right" valign="middle" width="260" style="padding: 0 0 1px 0; text-align: right;"><a target="_blank" href="https://www.pi.amgen.com/united_states/Aimovig/Aimovig_pi_hcp_english.pdf" alias="Prescribe Button" style="vertical-align:middle;text-align:right; font-weight: bold; color:#ffffff; padding:0px 0px 0px 0px; margin: 0px 0 0 0; "><img valign="middle" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/prescribe_info_d.png" width="260" border="0" alt="Prescribing Info" style="display:inline-block; font-size:0px;vertical-align:middle; padding:0 0 0 0px;" /></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="hideMobile" align="right" valign="middle" width="260" style="padding: 0 0 0 0; text-align: right;"><a target="_blank" href="https://www.pi.amgen.com/united_states/Aimovig/Aimovig_ppi_pt_english.pdf" alias="Patient Button" style="vertical-align:middle;  text-align:right; padding:0px 0px 0px 0px; margin: 0px 0 0 0; "><img valign="middle" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/patient_info_d.png" width="260" border="0" alt="Patient Button" style="display:inline-block; font-size:0px;vertical-align:middle; padding:0px 0 0px 0px;" /></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="top">
+                <table width="600" class="hideMobile" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation" style="border-top:5px solid #F1D950;">
+                    <tr>
+                        <td class="hideMobile" align="center" valign="top"><img class="imgMax" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/three_women_d.png" width="600" height="auto" border="0" alt="Three women with flowers in their hair smiling." style="display:block; font-size:12px; color:#333333;" /></td>
+                    </tr>
+                </table>
+                <table width="100%" class="showMobile" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation">
+                    <tr>
+                        <td class="showMobile" align="center" valign="top"><img class="imgMax" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/three_women_m.png" width="600" height="auto" border="0" alt="Three women with flowers in their hair smiling." style="display:inline-block; font-size:12px; color:#333333;" /></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" valign="top">
+                <table width="600" class="mobile380" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation">
+                    <tr>
+                        <td align="center" valign="top" style="font-family:'Century Gothic', Helvetica, Arial, sans-serif; ; font: 26px/29px 'Century Gothic', Helvetica, Arial, sans-serif;color:#901f61; font-size:30px;font-weight:bold; -webkit-text-size-adjust:none; text-align:center; padding:20px 20px 16px;">
+                            <center>Recognizing all you’ve&nbsp;experienced</center>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; text-align: center;padding: 10px 0 0 0;">Hi [First Name],</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; text-align: center; padding: 15px 30px 10px;">
+                            Now is a great time to take a moment and celebrate how far you’ve come. As you think about the last few months, did your original reason for treating migraine change or is it still what drives you? Whatever the reason, identify it and let it motivate you as you carry on. </td>
+                    </tr>
+                    <tr>
+                        <td width="100%" align="center" valign="top" style="color:#901f61; font-size:16px; line-height: 20px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold; text-align: center;text-transform: uppercase;padding: 0px 0 0 0px;">Approved Use</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="color:#000000; font-size:16px; line-height: 20px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; text-align: center; padding: 10px 36px 10px;">Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span> (erenumab&#8209;aooe) is a prescription medicine used for the preventive treatment of migraine <span style="white-space: nowrap;">in&nbsp;adults</span>.</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="color:#901f61; font-size:16px; line-height: 20px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold; text-align: center; padding-top: 9px;text-transform: uppercase;" class="pt7">Important Safety Information</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="color:#901f61; font-size:16px; line-height: 20px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold; text-align: center; padding-top: 10px; ">Who should not use Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span>?</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="top" style="color:#000000; font-size:16px; line-height: 20px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; text-align: center; padding:10px 35px 10px;" class="pl30 pr30 pt9 lh19">Do not use Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span> if you are allergic to erenumab&#8209;aooe or any ingredients <span style="white-space: nowrap;">in&nbsp;Aimovig</span><span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span>.</td>
+                    </tr> 
+                    <tr>
+                        <td align="center" valign="top" style="color:#000000; font-size:16px; line-height: 20px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; text-align: center; padding:0px 35px 20px;" class="pl30 pr30 pt9 lh19">Please see additional Important Safety Information below.</td>
+                    </tr>
+                </table>
+                <table width="600" class="mobile380" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                    <tr>
+                        <td align="center" valign="top" style="border-top:5px solid #901f61;">
+                            <table width="100%" class="mobile380" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation">
+                                <tr>
+                                    <td align="center" style="vertical-align: middle; margin: 0 0 0 0; padding: 0px 0 0px 0;">
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                        <td width="290" align="left" style="margin: 0; margin-bottom: 0; padding: 0px 5px 0 5px;">
+                                        <![endif]-->
+                                        <table class="" width="290" align="center" valign="middle" border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle; display: inline-block;">
+                                            <tr>
+                                                <td class="" width="283" align="center" valign="middle" style="color:#901f61; font-size:24px; line-height: 29px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold;padding:26px 0 10px 0;text-align: left;">What patients are saying</td>
+                                            </tr>
+                                             <!--[if mso]><!-->
+                                            <tr>
+                                                <td class="mobileHide" style="line-height: 0px; mso-line-height-rule: exactly; margin: 0; margin-bottom: 0; padding: 0px 0 0px 0;">&nbsp;</td>
+                                            </tr>
+                                            <!--<![endif]-->
+                                            <tr>
+                                                <td class="mobleExperienceText" width="249" align="left" valign="top" style="color:#000000; font-size:17px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;text-align: left;padding: 15px 0 10px 0;">
+                                                    AIM Network Member Delora tells us about&nbsp;her&nbsp;personal experience.
+                                                </td>
+                                            </tr>
+                                              <tr>
+                                                <td class="mobileHide" width="289" align="left" style="margin: 0; padding: 0 0 0 0;" class="imgMax">
+                                                    <table class="mobileHide">
+                                                        <tr>
+                                                            <td width="250" align="left" valign="top" style="color:#000000; font-size:15px; line-height: 17px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;text-align: left;padding: 0px 0px 0 0px;">Individual results may vary.<br />Aimovig<sup style="font-size: 70%; line-height: 70%; vertical-align: 4px;">&reg;</sup> is proven to reduce monthly migraine days.</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!---mobile switch--->
+                                            <tr>
+                                                <td class="mobilePad" width="289" align="center" style="margin: 0; padding: 0 0 0 0;" class="imgMax">
+                                                    <table class="showMobile">
+                                                        <tr>
+                                                            <td class="showMobile">
+                                                                <img class="" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/woman_review.png" alt="The frequency of migraine days has gone way down. I have more time with family - that's why I'm grateful." width="294" style="height: auto; display: inline-block; border: 0;padding:0px 0 26px 0;" />
+                                                            </td>
+                                                        </tr>
+                                                           <tr>
+                                                            <td width="249" align="left" valign="top" style="color:#000000; font-size:15px; line-height: 17px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;text-align: left;padding: 0px 0 10px 0px;">Individual results may vary.<br />Aimovig<sup style="font-size: 70%; line-height: 70%; vertical-align: 4px;">&reg;</sup> is proven to reduce monthly migraine days.</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="" align="center" style="margin: 0; padding: 0 0 0 0;">
+                                                    <table class="hideMobile">
+                                                        <tr>
+                                                            <td style="mso-line-height-rule: exactly;line-height: 20px;margin: 0; margin-bottom: 0; padding: 16px 0px;">&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!--<![endif]-->
+                                            <!---end mobile switch--->
+                                            <tr align="center">
+                                                <td class="mobileFace" width="249" align="center" valign="top" style="color:#000000; font-size:17px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;text-align: center;padding: 0px 0 0px 0 ;">
+                                                    <!--[if mso]>
+                                                          <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://www.facebook.com/aimovig" target="_blank" alias="Facebook Link" style="height:50px;v-text-anchor:middle;width:191px;" stroke="f" fill="t">
+                                                            <v:fill type="frame" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/facebook_join_us.jpg" color="#e5ebef" />
+                                                            <w:anchorlock/>
+                                                          </v:rect>
+                                                        <![endif]-->
+                                                    <a href="http://www.facebook.com/aimovig" target="_blank" alias="Facebook Link" style="vertical-align:middle; white-space:nowrap; border-radius:40px; -moz-border-radius:40px; -webkit-border-radius:40px; font-size:16px; font-family: Arial, sans-serif; text-align:center; font-weight: bold; color:#ffffff; padding:11px 30px 11px 30px; height: 40; width: 163; background-color:#45A0DB;margin: 0px 0 0 0; text-decoration: none; mso-hide:all;"><img class="chevron" valign="middle" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/face.png" width="25" border="0" alt="Facebook Logo" style="display:inline-block; font-size:12px;vertical-align:middle; padding-left:10px;mso-hide:all;" />&nbsp;&nbsp;&nbsp;&nbsp;join us</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="mobileHide" style="mso-line-height-rule: exactly;line-height: 20px; margin: 0; margin-bottom: 0; padding: 9px 0 0px 0;">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                        <!--[if (gte mso 9)|(IE)]></td>
+                                        <td width="290" align="right" style="margin: 0; margin-bottom: 0; padding: 0px 0px 0 0px;"><![endif]-->
+                                        <table class="mobleExperienceText" width="290" align="center" valign="middle" border="0" cellpadding="0" cellspacing="0" style="vertical-align: middle; display: inline-block;">
+                                            <tr>
+                                                <td class="mobileHide" style="mso-line-height-rule: exactly;line-height: 20px;margin: 0; margin-bottom: 0; padding: 0 0 0 0;">&nbsp;</td>
+                                            </tr>
+                                            <!---mobile switch--->
+                                            <tr>
+                                                <td class="mobilePad" width="289" align="center" style="margin: 0; padding: 0 0 0 0;">
+                                                    <table class="mobileHide">
+                                                        <tr>
+                                                            <td class="mobileHide">
+                                                                <img src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/woman_review.png" alt="Aimovig patients says, I feel like Im there more for every moment, big and small" width="280" style="display: inline-block; border: 0;padding:0px 0 0 0;" />
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <!---end mobile switch--->
+                                            <tr>
+                                                <td class="" style="line-height: 20px; mso-line-height-rule: exactly; margin: 0; margin-bottom: 0; padding: 0 0 0 0;">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                        <!--[if (gte mso 9)|(IE)]></td>
+                                        </tr>
+                                        </table><![endif]-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="249" align="center" style="margin: 0; padding: 0px 0 0 0;">
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                        <td width="290" align="center" style="margin: 0; margin-bottom: 0; padding: 0px 0px 0px 0px;">
+                                        </td>
+                                        </tr>
+                                        </table><![endif]-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table width="600" class="mobile380" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation" style="border-top:5px solid #901f61;border-bottom:5px solid #901f61;">
+                    <tr>
+                        <td style="line-height: 30px; mso-line-height-rule: exactly; margin: 0; margin-bottom: 0; padding: 0 0 0 0;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="center" valign="middle"><img src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/megaphone_FPO.png" width="100" height="90" border="0" alt="Megaphone to share your story." style="display:inline-block !important; width:100px;height:90px;font-size:0px; color:#333333;padding:0px 0 30px 0;" /></td>
+                    </tr>
+                    <tr>
+                        <td class="mobileMicrophone" valign="top" align="center" style="color:#901f61; font-size: 24px; line-height: 15px;  padding: 0px 0px 20px 0px;font-family: 'Century Gothic', Helvetica, Arial, sans-serif;font-weight: bold;">
+                            Your unique story can inspire&nbsp;others
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="mobileExperience" align="center" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; text-align: center; padding: 0px 45px 0px;">
+                            Your Aimovig<span style="font-size: 70%; line-height: 70%; vertical-align: 4px; ">&reg;</span> story is unique, and others may want to hear about it! Join our growing AIM Network and celebrate every step of your journey.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="joinNetworkPad" align="center" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; text-align: center; padding: 20px 40px 20px 40px;">To join the AIM Network, send an email to <span class="MsoHyperlink"><a href="mailto:share@aimnetworkteam.com" target="_blank" alias="Aimovig Tracker" alt="Aimovig Tracker" style="color:#36afe1;text-decoration: underline;">Share@AIMNetworkTeam.com</a></span> or&nbsp;call&nbsp;<span class="MsoHyperlink"><a href="tel:1-866-878-2475" target="_blank" alias="Aimovig Tracker" alt="Aimovig Tracker" style="color:#36afe1;text-decoration: underline;">1&#8209;866&#8209;878&#8209;2475</a></span>.</td>
+                    </tr>
+                </table>
+                <table width="600" class="mobile380" bgcolor="f1f2f2" cellpadding="0" cellspacing="0" border="0" align="center" role="presentation">
+                    <tr>
+                        <td align="left" valign="top" style="color:#8f1f60; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold; padding: 19px 0 0 24px;text-transform: uppercase;">Important Safety Information</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#8f1f60; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold; padding: 8px 0 0 24px;">Who should not use Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span>?</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;padding: 10px 38px 0 24px;">Do not use Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span> if you are allergic to erenumab&#8209;aooe or any ingredients <nobr>in Aimovig</nobr><span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span>.</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;padding: 10px 68px 0 24px;"><span style="font-weight: bold;">Before starting Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span>,</span> tell your healthcare provider (HCP) about all your medical conditions, including if you are allergic to rubber or latex, pregnant or plan to become pregnant, breastfeeding or plan <span style="white-space: nowrap;">to&nbsp;breastfeed</span>.</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;padding: 10px 26px 0 24px;">Tell your HCP about all the medicines you take, including any prescription and over&#8209;the&#8209;counter medicines, vitamins, or herbal supplements.</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#8f1f60; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold; padding: 8px 0 0 24px;">What are possible side effects <span style="white-space: nowrap;">of&nbsp;Aimovig</span><span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span>?</td>
+                    </tr>
+                    <!------->
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: bold;padding: 10px 26px 0 24px;">
+                            Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span> may cause serious side effects, including:</td>
+                    </tr>
+                     <tr>
+                        <td style="padding:0 10px 0 25px;">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                                <tr>
+                                    <td colspan="2" style="margin: 0; margin-bottom: 0; padding: 0 0 0 0; line-height: 10px; mso-line-height-rule: exactly;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td width="10" valign="baseline" style="margin: 0; margin-bottom: 0; padding: 0 3px 0 0; color: #000000; font: 16px/22px sans-serif;">&bull;</td>
+                                    <td valign="baseline" style="margin: 0; margin-bottom: 0; padding: 0 0 0 0;font-family: 'Century Gothic', Helvetica, Arial, sans-serif;  font: 16px/22px Century Gothic, Apple Gothic, Arial, sans-serif;color: #000000;text-align: left;"><span style="color: #000000; font-weight: bold; ">Allergic reactions.</span>
+                                        Allergic reactions, including rash or swelling can happen after receiving Aimovig<span style="font-size: 70%; line-height:0; vertical-align: 4px;">&reg;</span>. This can happen within hours to days after using Aimovig<span style="font-size: 70%; line-height:0; vertical-align: 4px;">&reg;</span>. Call your HCP or get emergency medical help right away if you have any of the following symptoms of an allergic reaction: swelling of the face, mouth, tongue or throat, or trouble breathing.</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" style="margin: 0; margin-bottom: 0; padding: 0 0 0 0; line-height: 10px; mso-line-height-rule: exactly;">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td width="10" valign="baseline" style="margin: 0; margin-bottom: 0; padding: 0 3px 0 0; color: #000000; font: 16px/22px sans-serif;">&bull;</td>
+                                    <td valign="baseline" style="margin: 0; margin-bottom: 0; padding: 0 0 0 0;font-family: 'Century Gothic', Helvetica, Arial, sans-serif;   font: 16px/22px Century Gothic, Apple Gothic, Arial, sans-serif;color: #000000;text-align: left;"><span style="color: #000000; font-weight: bold; ">Constipation with serious complications.</span>
+                                        Severe constipation can happen after receiving Aimovig<span style="font-size: 70%; line-height:0; vertical-align: 4px;">&reg;</span>. In some cases people have been hospitalized or needed surgery. Contact your HCP if you have severe constipation.</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;padding: 10px 43px 0 24px;">The most common side effects of Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span> are pain, redness, or swelling at the injection site and constipation.</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;padding: 10px 44px 0 24px;">These are not all of the possible side effects of Aimovig<span style="font-size:70%; line-height: 0; vertical-align:4px;">&reg;</span>. Call your HCP for medical advice about side effects.</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;padding: 10px 56px 0 24px;">You are encouraged to report negative side effects of prescription drugs to the FDA. Visit <a href="https://www.fda.gov/medwatch" style="text-decoration: underline !important; color:#01a1dd;" target="_blank" alias="www.fda.gov/medwatch CTA"><u>www.fda.gov/medwatch</u></a>, or call 1&#xFEFF;&#8209;&#xFEFF;80&#xFEFF;0&#xFEFF;&#8209;&#xFEFF;F&#xFEFF;DA&#xFEFF;&#8209;&#xFEFF;10&#xFEFF;8&#xFEFF;8.</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top" style="color:#000000; font-size:16px; line-height: 22px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal;padding: 10px 0 0 24px;"><a href="https://www.pi.amgen.com/united_states/Aimovig/Aimovig_pi_hcp_english.pdf" style="text-decoration: underline !important; color:#01a1dd;" target="_blank" alias="Click here for the full Prescribing Information CTA"><u>Click here for the full Prescribing Information</u></a> and <a href="https://www.pi.amgen.com/united_states/Aimovig/Aimovig_ppi_pt_english.pdf" style="text-decoration: underline !important; color:#01a1dd;" target="_blank" alias="Patient Product Information CTA"><u>Patient Product Information</u></a>.</td>
+                    </tr>
+                    <tr>
+                        <td style="line-height: 40px; mso-line-height-rule: exactly; margin: 0; margin-bottom: 0; padding: 0 0 0 0;">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td height="5" width="100%" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; mso-line-height-rule:exactly; line-height:5px;" bgcolor="#fad91f">
+                            <!--[if gte mso 15]>&nbsp;<![endif]-->
+                        </td>
+                    </tr>
+                </table>
+                <table width="600" class="mobile380" cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tr>
+                        <td bgcolor="#7C255A" valign="top">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" role="presentation">
+                                <tr>
+                                    <td class="mobile380" align="center" style="vertical-align: middle; margin: 0 0 0 0; padding: 0 0 0 0;">
+                                        <table width="300" align="left" valign="middle" border="0" cellpadding="0" cellspacing="0" style="display: inline-block;padding: 0 0 0 0;" class="footerWidth">
+                                            <tr>
+                                                <td style="line-height: 20px; mso-line-height-rule: exactly; margin: 0; margin-bottom: 0; padding: 0 0 0 0;">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="" align="center" valign="top">
+                                                    <table width="100%" cellpadding="0" cellspacing="0" border="0" align="left" role="presentation">
+                                                        <tr>
+                                                            <td align="left" valign="top" style="font: 0px/21px 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#000000; -webkit-text-size-adjust:none; text-align:left; padding-left:24px;padding-right: 40px;"><img class="" src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/amgen_Novartis_Logo.png" width="226" border="0" alt="Logo: Novartis" style="display:inline-block; font-size:0px; color:#000000;" /></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="120" align="left" valign="top" style="color:#ffffff; font-size:9px; line-height: 11px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; padding: 20px 0 0 25px;" class=""><a href="https://www.migraineprivacypolicy.com" style="text-decoration: underline !important; color:#ffffff; font-weight: bold;" target="_blank" alias="Privacy Statement CTA"><u>Privacy Statement</u></a></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="120" align="left" valign="top" style="color:#ffffff; font-size:9px; line-height: 11px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; padding: 9px 0 0 25px;" class="">To unsubscribe from this program, <span class="MsoHyperlinkW"><a href="http://click.e.myamgensupport.com/?USERID" target="_blank" style="text-decoration: underline !importants; color:#ffffff; font-weight: bold;" alias="To unsubscribe click here CTA"><u>click here</u></a></span>.</td>
+                                            </tr>
+                                            <tr>
+                                                <td width="222" align="left" valign="top" style="color:#ffffff; font-size:9px; line-height: 11px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; padding: 9px 0 0 25px;" class="">&#169; 20&#xFEFF;20 Am&#xFEFF;gen In&#xFEFF;c. All rights reserved. <span style="white-space: nowrap !important;"><span style=“white-space:nowrap;”>
+                                                            <nobr>USA-334-82993</nobr>
+                                                        </span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="222" align="left" valign="top" style="color:#ffffff; font-size:9px; line-height: 11px; font-family: 'Century Gothic', Helvetica, Arial, sans-serif; font-weight: normal; padding: 10px 0 30px 25px;" class="">One Amg&#xFEFF;en Cen&#xFEFF;ter Dri&#xFEFF;ve, Thous&#xFEFF;and Oa&#xFEFF;ks, C&#xFEFF;A 91&#xFEFF;3&#xFEFF;20</td>
+                                            </tr>
+                                        </table>
+                                        <table width="100" align="left" valign="middle" border="0" cellpadding="0" cellspacing="0" style="display: inline-block;padding: 0 0 0 0;">
+                                            <tr>
+                                                <td>&nbsp;
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <table background-color="#7C255A" width="200" class="aimovigFoot" align="center" valign="middle" border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td class="mobileHide" background-color="#7C255A" style="line-height: 20px; mso-line-height-rule: exactly; margin: 0; margin-bottom: 0; padding: 0 20px 0 20px;">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td background-color="#7C255A" width="165" align="center" style="margin: 0; padding: 0 0 0 0;">
+                                                    <img src="http://preview.williamsleatag.com/AMGEN/AIMOVIG/2020/email/USA_334_82993_242002925/imgs/img_aimovig_logo_footer.png" alt="Logo: Aimovig® (erenumab-aooe)" width="165" style="display: inline-block; border: 0;" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td background-color="#7C255A" style="line-height: 40px; mso-line-height-rule: exactly; margin: 0; margin-bottom: 0; padding: 0 0 0 0;">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body></html>

@@ -1,0 +1,442 @@
+<!DOCTYPE HTML><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<style type="text/css">
+
+
+            body, table, td, a{-webkit-text-size-adjust: 100%;
+-ms-text-size-adjust: 100%;  margin-left: auto;
+            margin-right:auto;}
+            table, td{mso-table-lspace: 0pt; mso-table-rspace: 0pt;}
+            img{-ms-interpolation-mode: bicubic;}
+            img{border: 0; height: auto; outline: none;
+text-decoration: none;}
+            table{border-collapse: collapse !important;}
+            body{height: 100% !important; margin: 0 auto !important;
+padding: 0 !important; width: 100% !important;}
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+                font-size: inherit !important;
+                font-family: inherit !important;
+                font-weight: inherit !important;
+                line-height: inherit !important;
+            }
+            @media screen and (max-width: 600px) {
+                .wrapper {
+                    width: 100% !important;
+                    max-width: 100% !important;
+                }
+                .logo img {
+                    margin: 0 auto !important;
+                }
+                .mobile-hide {
+                    display: none !important;
+                }
+                .img-max {
+                    max-width: 100% !important;
+                    width: 100% !important;
+                    height: auto !important;
+                }
+                .responsive-table {
+                    width: 100% !important;
+                }
+
+
+                .padding {
+                    padding: 10px 5% 15px 5% !important;
+                }
+
+                .padding-meta {
+                    padding: 30px 5% 0px 5% !important;
+                    text-align: center;
+                }
+
+                .no-padding {
+                    padding: 0 !important;
+                }
+
+                .section-padding {
+                    padding: 50px 15px 50px 15px !important;
+                }
+
+
+                .mobile-button-container {
+                    margin: 0 auto;
+                    width: 100% !important;
+                }
+
+                .mobile-button {
+                    padding: 15px !important;
+                    border: 0 !important;
+                    font-size: 16px !important;
+                    display: block !important;
+                }
+
+            }
+
+            div[style*="margin: 16px 0;"] { margin: 0 !important; }
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Open Sans Cond Light'),
+local('OpenSans-CondensedLight'),
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xJwNa6kgmw9HIHjUBPkzL2f3rGVtsTkPsbDajuO5ueQw.woff2)
+format('woff2');
+                unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF,
+U+A640-A69F;
+            }
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Open Sans Cond Light'),
+local('OpenSans-CondensedLight'),
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xKdGPpWTn2kPFru4k7T0T-v3rGVtsTkPsbDajuO5ueQw.woff2)
+format('woff2');
+                unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1,
+U+2116;
+            }
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Open Sans Cond Light'),
+local('OpenSans-CondensedLight'),
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xN9i7v7U2vZkHC55NWxtqfn3rGVtsTkPsbDajuO5ueQw.woff2)
+format('woff2');
+                unicode-range: U+1F00-1FFF;
+            }
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Open Sans Cond Light'),
+local('OpenSans-CondensedLight'),
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xK1ueDcgZDcfV3TWANvdPLj3rGVtsTkPsbDajuO5ueQw.woff2)
+format('woff2');
+                unicode-range: U+0370-03FF;
+            }
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Open Sans Cond Light'),
+local('OpenSans-CondensedLight'),
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xC3qj1XlvLGj0jktnJzWu233rGVtsTkPsbDajuO5ueQw.woff2)
+format('woff2');
+                unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+            }
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Open Sans Cond Light'),
+local('OpenSans-CondensedLight'),
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xC8hAQ4ocbp44gFQt8tMfcH3rGVtsTkPsbDajuO5ueQw.woff2)
+format('woff2');
+                unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB,
+U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+            }
+            @font-face {
+                font-family: 'Open Sans Condensed';
+                font-style: normal;
+                font-weight: 300;
+                src: local('Open Sans Cond Light'),
+local('OpenSans-CondensedLight'),
+url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xBEur64QvLD-0IbiAdTUNXE.woff2)
+format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153,
+U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+            }
+</style>
+<link href="https://fonts.googleapis.com/css?family=Open&#43;Sans" rel="stylesheet">
+</head>
+<body style="margin: 0 !important; padding: 0 !important;margin: 0
+auto !important;padding: 0 !important;height: 100% !important;width:
+100% !important;background-color:#f2f2f2;">
+<center style="width:100%;-webkit-text-size-adjust:
+100%;-ms-text-size-adjust: 100%;">
+<div style="display: none; max-height: 0px; overflow: hidden;">
+              We like to keep our profiles up to date with active
+users, and we noticed you haven't logged into your account in over 30
+days.
+</div>
+
+<div style="display: none; max-height: 0px; overflow:
+hidden;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&amp;n
+ bsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&amp;nb
+ sp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&amp;zwnj!
+ ;&nbsp;&amp;
+zwnj;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8;
+ 204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;&nbsp;&#8204;
+</div>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+<tr>
+<td bgcolor="#17acc0" align="center">
+<!--[if (gte mso 9)|(IE)]>
+<table align="center" border="0" cellspacing="0" cellpadding="0"
+width="600" style="border-collapse: collapse;">
+<tr>
+<td align="center" valign="top" width="600">
+<![endif]-->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; border-collapse: collapse;">
+<tr>
+<td height="30"></td>
+</tr>
+</table>
+<!--[if (gte mso 9)|(IE)]>
+</td>
+</tr>
+</table>
+<![endif]-->
+</td>
+</tr>
+
+<tr border="0" cellpadding="0" cellspacing="0">
+<td bgcolor="#17acc0" align="center" style="padding: 0px 10px 0px
+10px; display:block; vertical-align: middle;">
+<!--[if (gte mso 9)|(IE)]>
+<table align="center" border="0" cellspacing="0" cellpadding="0"
+width="600" style="border-collapse: collapse;">
+<tr>
+<td align="center" valign="top" width="600">
+<![endif]-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width: 600px; border-collapse: collapse;">
+
+<tr>
+<td bgcolor="#ffffff" align="center" valign="top" style="padding: 0px
+20px 0px 20px;padding-top:20px;padding-bottom:20px;
+border-top-right-radius:14px; border-top-left-radius:14px; color:
+#111111;font-family:sans-serif;line-height:40px;font-size:12px;">
+<a href="http://socialdatingmail.com/utils/msg_in.php/S520?page=swboard&amp;unsub=tony.l@quantumsolutions.com&amp;id=-5191539630&amp;site=mylocflirt&amp;utm_medium=email&amp;utm_term=&amp;utm_source=mktmss2&amp;utm_content=unsub&amp;utm_campaign=mylocflirt" style="color:#333333;display:inline;font-family:sans-serif;line-height:40px;text-align:center;text-decoration:underline;width:250px;padding:5px;-webkit-text-size-adjust:none;font-size:12px;">Unsubscribe</a>
+<tr>
+<td align="left" style="padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;background-color:
+#FFFFFF;">
+<table align="left">
+<tr>
+<!--[if !mso]><!--><td align="left">
+<img src="http://socialdatingmail.com/images/mylocflirt/maillogo/maillogo.png" width="50%" alt="Logo" style="border-width:0;width:50%;height:auto;display:block;">
+</td><!--<![endif]-->
+<!--[if mso]><td align="left"><img border="0" alt="Logo"
+src="http://socialdatingmail.com/images/mylocflirt/maillogo/maillogo1.png"></td><![endif]-->
+
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td bgcolor="#ffffff" height="15"></td>
+</tr>
+</td>
+</tr>
+</table>
+<!--[if (gte mso 9)|(IE)]>
+</td>
+</tr>
+</table>
+<![endif]-->
+
+</td>
+
+</tr>
+
+  </table>
+
+
+
+
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;margin-bottom:20px;">
+<tr>
+<td bgcolor="#f2f2f2" align="center" style="padding: 0px 10px 0px
+10px; display:block; vertical-align: middle;">
+<!--[if (gte mso 9)|(IE)]>
+<table align="center" border="0" cellspacing="0" cellpadding="0"
+width="600" style="border-collapse: collapse;">
+<tr>
+<td align="center" valign="top" width="600">
+<![endif]-->
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="align:left;border-spacing:0;font-family:sans-serif;Margin:0
+auto;width:100%!important;max-width:600px;background-color: #ffffff;
+border-bottom-left-radius:14px;border-bottom-right-radius:14px;">
+<tr style="margin:0 auto;align:center;text-align:center;">
+<td style="margin:0 auto;align:center;text-align:center;">
+<!--[if (gte mso 9)|(IE)]>
+<table align="center" border="0" cellspacing="0" cellpadding="0"
+width="600">
+<tr>
+<td align="center" valign="top" width="600">
+<![endif]-->
+</td>
+</tr>
+
+<tr>
+<td align="left" style="padding-top:10px;padding-bottom:10px;padding-right:10px;font-size:14px
+!important;padding-left:10px;background-color: #ffffff;">
+<table align="left" style="border-spacing:0;font-family:sans-serif;width:100%;text-align:left;Margin:0
+auto;">
+<tr>
+<!--[if (gte mso 9)|(IE)]>
+<p style="font-size:14px !important;">Hello justin2free3Male</p>
+<p>We like to keep our profiles up to date with active users, and we
+noticed you haven't logged into your account in over 30 days.</p>
+<p>You registered with us 1 days ago.</p>
+<br />
+<p>You can login to <a
+href="http://socialdatingmail.com/utils/msg_in.php/S520/?page=my_profile&q_id=-5191539630&email=tony.l@quantumsolutions.com">HERE</a>
+to keep your membership active.</p>
+<p>If we don't see any activity in your account we will remove you
+from any searches.</p>
+<p>We hope that you will come back and check out all the new
+users.</p>
+<div style="width:0px; height:0px; max-height:0; max-width:0;
+overflow:hidden; display:none; visibility:hidden;
+mso-hide:all;Margin:0 auto;">
+<![endif]-->
+<p>Hello justin2free3Male</p>
+<p>We like to keep our profiles up to date with active users, and we
+noticed you haven't logged into your account in over 30 days.</p>
+<p>You registered with us 1 days ago.</p>
+<br>
+<p>You can login <a href="http://socialdatingmail.com/utils/msg_in.php/S520/?page=my_profile&amp;q_id=-5191539630&amp;email=tony.l@quantumsolutions.com">HERE</a>
+to keep your membership active.</p>
+<p>If we don't see any activity in your account we will remove you
+from any searches.</p>
+<p style="padding-bottom:20px;">We hope that you will come back and
+check out all the new users.</p>
+<!--[if (gte mso 9)|(IE)]>
+</div>
+<![endif]-->
+</tr>
+<tr>
+<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;
+background-color: #ffffff;">
+<table align="center">
+<tr>
+<td width="100%" align="center">
+<table width="100%" align="center" style="border-collapse: collapse;
+margin:0 auto;">
+<tr>
+<td>
+<table align="center" cellpadding="0" cellspacing="0" style="text-align:center;font-family:Helvetica, arial, sans-serif;
+font-size:16px;">
+<tr>
+<!--[if (gte mso 9)|(IE)]><!--><td>
+<p style="margin-top:10px;
+margin-bottom:5px;text-align:center;"><b>Username:</b>
+justin2free3Male</p>
+</td><!----><![endif]-->
+<!--[if mso]><td style="margin-top:10px;font-family:Helvetica, arial,
+sans-serif;text-align:center;"><p><b>Username:</b>
+justin2free3Male</p><![endif]-->
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td width="100%" align="center" valign="middle" height="40" style="padding-bottom:30px;">
+<span style="color: #ffffff;">
+<div><!--[if mso]>
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+href="http://socialdatingmail.com/utils/msg_in.php/S520/?page=my_profile&q_id=-5191539630&email=tony.l@quantumsolutions.com"
+style="height:50px;v-text-anchor:middle;width:260px;" arcsize="60%"
+stroke="f" fillcolor="#17acc0">
+<w:anchorlock></w:anchorlock>
+<center>
+<![endif]-->
+<a href="http://socialdatingmail.com/utils/msg_in.php/S520/?page=my_profile&amp;q_id=-5191539630&amp;email=tony.l@quantumsolutions.com" style="background-color:#17acc0;border-radius:30px;color:#ffffff;display:block;font-weight:bold;font-family:Helvetica,
+Arial, sans-serif;
+font-size:16px;line-height:55px;text-align:center;text-decoration:underline;width:260px;-webkit-text-size-adjust:none;">Click
+Here to Login</a>
+<!--[if mso]>
+</center>
+</v:roundrect>
+<![endif]--></div>
+
+</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<!--[if (gte mso 9)|(IE)]>
+</td>
+</tr>
+</table>
+<![endif]-->
+</table>
+</td>
+</tr>
+
+
+
+<table width="100%" cellpadding="4" cellspacing="0" style="font-family:Helvetica,arial,sans-serif; font-size:13px;
+background:#ffffff;text-align:center;max-width:600px;margin:0
+auto;text-align:center;align:center;">
+<tr>
+<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;">
+<!--[if (gte mso 9)|(IE)]>
+<table align="center" border="0" cellspacing="0" cellpadding="0"
+width="600" >
+<tr>
+<td align="center" valign="top" width="600">
+<![endif]-->
+<table style="border-spacing:0;font-family:sans-serif;color:#333333;width:100%;font-size:14px;text-align:center;color:#e01b1e;max-width:500px;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto;text-align:center;align:center;">
+<tr>
+<td style="color:#737373;text-align:center;padding-top:15px;padding-bottom:0;padding-right:0;padding-left:0;overflow:hidden;">
+<a href="http://socialdatingmail.com/utils/msg_in.php/S520/?page=swboard&amp;id=368050969&amp;ref=tony.l@quantumsolutions.com&amp;site=mylocflirt&amp;utm_medium=email&amp;utm_term=&amp;utm_source=mktmss2&amp;utm_content=login&amp;utm_campaign=mylocflirt" style="color:#737373;display:inline;font-weight:bold;font-family:sans-serif;line-height:40px;text-align:center;text-decoration:underline;width:150px;-webkit-text-size-adjust:none;">Manage
+Notifications</a> |
+<a href="http://socialdatingmail.com/utils/msg_in.php/S520?page=swboard&amp;feedback=tony.l@quantumsolutions.com&amp;id=-5191539630" style="color:#737373;display:inline;font-weight:bold;font-family:sans-serif;line-height:40px;text-align:center;text-decoration:underline;width:150px;-webkit-text-size-adjust:none;">Feedback</a>
+|
+<a href="http://socialdatingmail.com/utils/msg_in.php/S520?page=swboard&amp;unsub=tony.l@quantumsolutions.com&amp;id=-5191539630&amp;site=mylocflirt&amp;utm_medium=email&amp;utm_term=&amp;utm_source=mktmss2&amp;utm_content=unsub&amp;utm_campaign=mylocflirt" style="color:#737373;display:inline;font-weight:bold;font-family:sans-serif;line-height:40px;text-align:center;text-decoration:underline;width:150px;-webkit-text-size-adjust:none;">Unsubscribe</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<table width="100%" cellpadding="0" cellspacing="0" style="font-family:Helvetica,arial,sans-serif; font-size:13px;
+background:#ffffff;text-align:center;max-width:600px;margin:0
+auto;text-align:center;align:center;border-bottom-right-radius: 14px;
+border-bottom-left-radius: 14px; padding-bottom:10px;">
+<tr>
+<td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;text-align:center;">
+<!--[if (gte mso 9)|(IE)]>
+<table align="center" border="0" cellspacing="0" cellpadding="0"
+width="600" >
+<tr>
+<td align="center" valign="top" width="600">
+<![endif]-->
+
+
+
+<img src="http://socialdatingmail.com/utils/msg_in.php/S520/fast_updates..php?id=-5191539630&amp;act=notification" width="1"><div id="notification">
+   <div id="notification_legal" style="font-size:12px;
+font-family:Helvetica,sans-serif; color:#737373 ; max-width:600px;
+margin:0 auto;padding: 0px 10px 10px 10px !important;"><span class="notification_legal">You affirm that you are 18 years or older
+and agree to the Terms, Email, Privacy Policy, and use of Love Stars,
+  which are fantasy profiles operated by the site for entertainment.
+The use of Love Stars on the site is prolific.
+  The vast majority of Members are Love Stars. Love Star profiles are
+not real. You will not be able to meet a Love Star in
+  person and any relationship with a Love Star will be of a fantasy
+nature. You will know if you are interacting with a Love
+  Star because each Love Star profile displays the Love Star logo
+[LS]. References to &quot;Members&quot; include Love Star profiles.
+  To withdraw your consent to receive e-mail simply click the link or
+send a request by mail to ADDRESS HERE
+Privacy Policy.&nbsp; <a href="http://socialdatingmail.com/utils/msg_in.php/S520/privacy.php">Privacy
+Policy</a>.</span></font></div>
+   </div></html>
