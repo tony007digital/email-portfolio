@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Email QA Copilot — Tony Lucio</title>
+<style>
+  :root{
+    --navy:#1B3A5C; --ink:#1A1A2E; --paper:#FAF8F4; --line:#D8D2C4;
+    --accent:#C2410C; --good:#15803D; --warn:#B45309; --bad:#B91C1C;
+    --mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height:100vh;
+  }
+  .wrap{max-width:920px; margin:0 auto; padding:48px 28px 80px;}
+  header{border-bottom:3px solid var(--navy); padding-bottom:18px; margin-bottom:8px;}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent);}
+  h1{font-size:34px; margin:6px 0 4px; color:var(--navy); letter-spacing:-0.01em;}
+  .sub{font-size:15px; color:#555; max-width:640px; line-height:1.5;}
+  .byline{font-family:var(--mono); font-size:12px; color:#888; margin-top:14px;}
+  .keyrow{margin-top:22px;}
+  #apiKeyInput{
+    width:100%; padding:12px 14px; font-family:var(--mono); font-size:13px;
+    border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:2px;
+  }
+  #apiKeyInput:focus{outline:1px solid var(--navy);}
+  .keynote{font-family:var(--mono); font-size:11px; color:#888; margin-top:6px; line-height:1.6;}
+  .keynote a{color:var(--navy);}
+  textarea{
+    width:100%; min-height:220px; margin-top:16px; padding:16px;
+    font-family:var(--mono); font-size:13px; line-height:1.5;
+    border:1px solid var(--line); background:#fff; color:var(--ink);
+    border-radius:2px; resize:vertical;
+  }
+  .row{display:flex; gap:10px; margin-top:14px; align-items:center; flex-wrap:wrap;}
+  button{
+    font-family:var(--mono); font-size:13px; letter-spacing:.04em; text-transform:uppercase;
+    background:var(--navy); color:#fff; border:none; padding:13px 26px;
+    cursor:pointer; border-radius:2px;
+  }
+  button:hover{background:#152e49;}
+  button:disabled{background:#999; cursor:wait;}
+  .sample{background:none; color:var(--navy); border:1px solid var(--navy); padding:12px 20px;}
+  .sample:hover{background:#eef2f6;}
+  .status{font-family:var(--mono); font-size:12px; color:#888;}
+  #report{margin-top:32px;}
+  .summary-bar{
+    display:flex; gap:0; border:1px solid var(--line); margin-bottom:24px; background:#fff;
+  }
+  .summary-cell{flex:1; padding:16px; text-align:center; border-right:1px solid var(--line);}
+  .summary-cell:last-child{border-right:none;}
+  .summary-num{font-family:var(--mono); font-size:28px; font-weight:bold;}
+  .summary-label{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#777; margin-top:4px;}
+  .critical .summary-num{color:var(--bad);}
+  .minor .summary-num{color:var(--warn);}
+  .good .summary-num{color:var(--good);}
+  .issue{
+    border-left:3px solid var(--line); padding:14px 18px; margin-bottom:10px; background:#fff;
+  }
+  .issue.critical{border-left-color:var(--bad);}
+  .issue.minor{border-left-color:var(--warn);}
+  .issue.copy{border-left-color:var(--navy);}
+  .issue-tag{font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:#888;}
+  .issue-title{font-size:16px; font-weight:bold; margin:4px 0 6px;}
+  .issue-detail{font-size:14px; color:#444; line-height:1.5;}
+  .section-label{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); margin:28px 0 12px; border-bottom:1px solid var(--line); padding-bottom:6px;}
+  footer{margin-top:50px; padding-top:18px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; color:#999;}
+  .error{color:var(--bad); font-family:var(--mono); font-size:13px; margin-top:14px;}
+  .error a{color:var(--bad);}
+  .loading{display:flex; gap:6px; align-items:center; font-family:var(--mono); font-size:12px; color:var(--navy);}
+  .dot{width:6px; height:6px; background:var(--navy); border-radius:50%; animation:pulse 1.2s infinite;}
+  .dot:nth-child(2){animation-delay:.2s;} .dot:nth-child(3){animation-delay:.4s;}
+  @keyframes pulse{0%,100%{opacity:.2;}50%{opacity:1;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Live Tool — Not a Mockup</div>
+    <h1>Email QA Copilot</h1>
+    <div class="sub">Paste raw HTML email code below. Claude reviews it the way I do before any campaign ships: broken/missing alt text, spam-trigger language, missing preheader, weak CTA structure, and mobile-responsiveness risk — then returns a prioritized report. Bring your own Anthropic API key below — it's used directly from your browser and nothing is stored or billed on my end.</div>
+    <div class="byline">Built and operated by Tony Lucio · tlucioemail@gmail.com · linkedin.com/in/tonyl01</div>
+  </header>
+
+  <div class="keyrow">
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-... (your Anthropic API key)" autocomplete="off">
+    <div class="keynote">Stored only in your browser's local storage and sent directly to Anthropic when you click Run — it never passes through my server. Get a free key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.</div>
+  </div>
+
+  <textarea id="htmlInput" placeholder="Paste your HTML email code here..."></textarea>
+  <div class="row">
+    <button id="analyzeBtn">Run QA Analysis</button>
+    <button class="sample" id="sampleBtn">Load Sample Email</button>
+    <span class="status" id="status"></span>
+  </div>
+
+  <div id="report"></div>
+
+  <footer>EMAIL QA COPILOT — PROOF OF AI-ASSISTED WORKFLOW — CLAUDE-POWERED ANALYSIS</footer>
+</div>
+
+<script>
+const SAMPLE = `<table width="600" cellpadding="0" cellspacing="0">
+<tr><td><img src="banner.jpg" width="600"></td></tr>
+<tr><td style="font-family:Arial;font-size:14px;padding:20px;">
+<h2>FREE!!! Limited Time Offer - Act Now!!!</h2>
+<p>Click <a href="http://bit.ly/3xyz">here</a> to claim your 100% FREE gift before it's gone!</p>
+<p>Hurry, this amazing deal won't last - buy now and save BIG $$$!</p>
+<a href="#">Shop Now</a>
+</td></tr>
+</table>`;
+
+const KEY_STORAGE = 'qa_copilot_anthropic_key';
+const apiKeyInput = document.getElementById('apiKeyInput');
+try {
+  const savedKey = localStorage.getItem(KEY_STORAGE);
+  if (savedKey) apiKeyInput.value = savedKey;
+} catch (e) { /* localStorage unavailable — key just won't persist between visits */ }
+
+apiKeyInput.addEventListener('input', () => {
+  try { localStorage.setItem(KEY_STORAGE, apiKeyInput.value.trim()); } catch (e) {}
+});
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+document.getElementById('sampleBtn').onclick = () => {
+  document.getElementById('htmlInput').value = SAMPLE;
+};
+
+document.getElementById('analyzeBtn').onclick = async () => {
+  const html = document.getElementById('htmlInput').value.trim();
+  const apiKey = apiKeyInput.value.trim();
+  const statusEl = document.getElementById('status');
+  const reportEl = document.getElementById('report');
+  const btn = document.getElementById('analyzeBtn');
+
+  if (!html) {
+    reportEl.innerHTML = '<div class="error">Paste HTML email code first, or click "Load Sample Email."</div>';
+    return;
+  }
+  if (!apiKey) {
+    reportEl.innerHTML = '<div class="error">Paste your Anthropic API key above first. Get a free key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.</div>';
+    return;
+  }
+
+  btn.disabled = true;
+  statusEl.innerHTML = '<span class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span> Analyzing...</span>';
+  reportEl.innerHTML = '';
+
+  const prompt = `You are an email QA specialist reviewing production HTML email code before send. Analyze the following HTML email for issues. Return ONLY valid JSON, no markdown, no preamble, in this exact structure:
+
+{
+  "critical_count": number,
+  "minor_count": number,
+  "copy_suggestions_count": number,
+  "issues": [
+    {"severity": "critical"|"minor"|"copy", "title": "short issue title", "detail": "specific explanation referencing the actual code, max 2 sentences"}
+  ]
+}
+
+Check specifically for: missing or empty alt attributes on images, broken or placeholder links (href="#" or javascript:void), spam-trigger words/phrases (FREE, ACT NOW, BUY NOW, excessive caps or exclamation points), missing preheader text, fixed-width tables that won't be responsive on mobile, vague or weak CTA text, missing UTM/tracking parameters on links.
+
+HTML to analyze:
+${html}`;
+
+  try {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: "claude-sonnet-5",
+        max_tokens: 3000,
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      const msg = (data && data.error && data.error.message) ? data.error.message : `HTTP ${response.status}`;
+      throw new Error(msg);
+    }
+    if (!data.content) {
+      throw new Error('Unexpected response shape from the API.');
+    }
+
+    const textBlock = data.content.find(b => b.type === "text");
+    if (!textBlock) {
+      throw new Error('No text content in the API response.');
+    }
+
+    let parsed;
+    try {
+      const cleaned = textBlock.text.replace(/```json|```/g, '').trim();
+      parsed = JSON.parse(cleaned);
+    } catch(e) {
+      throw new Error("Could not parse AI response as JSON.");
+    }
+
+    const issues = Array.isArray(parsed.issues) ? parsed.issues : [];
+    const counts = issues.reduce((acc, i) => {
+      if (i.severity === 'critical') acc.critical++;
+      else if (i.severity === 'minor') acc.minor++;
+      else if (i.severity === 'copy') acc.copy++;
+      return acc;
+    }, {critical:0, minor:0, copy:0});
+
+    let html_out = '';
+    html_out += `<div class="summary-bar">
+      <div class="summary-cell critical"><div class="summary-num">${counts.critical}</div><div class="summary-label">Critical</div></div>
+      <div class="summary-cell minor"><div class="summary-num">${counts.minor}</div><div class="summary-label">Minor</div></div>
+      <div class="summary-cell good"><div class="summary-num">${counts.copy}</div><div class="summary-label">Copy Notes</div></div>
+    </div>`;
+
+    const order = {critical:0, minor:1, copy:2};
+    const sorted = [...issues].sort((a,b) => (order[a.severity] ?? 3) - (order[b.severity] ?? 3));
+
+    html_out += '<div class="section-label">Findings</div>';
+    if (sorted.length === 0) {
+      html_out += '<div class="issue"><div class="issue-detail">No issues found.</div></div>';
+    }
+    sorted.forEach(issue => {
+      const sev = escapeHtml(issue.severity || 'minor');
+      html_out += `<div class="issue ${sev}">
+        <div class="issue-tag">${sev}</div>
+        <div class="issue-title">${escapeHtml(issue.title || '')}</div>
+        <div class="issue-detail">${escapeHtml(issue.detail || '')}</div>
+      </div>`;
+    });
+
+    reportEl.innerHTML = html_out;
+    statusEl.textContent = 'Analysis complete.';
+  } catch (err) {
+    reportEl.innerHTML = `<div class="error">Error running analysis: ${escapeHtml(err.message)}. Try again.</div>`;
+    statusEl.textContent = '';
+  } finally {
+    btn.disabled = false;
+  }
+};
+</script>
+</body>
+</html>
