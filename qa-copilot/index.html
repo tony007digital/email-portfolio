@@ -68,6 +68,11 @@
   .issue-detail{font-size:14px; color:#444; line-height:1.5;}
   .section-label{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); margin:28px 0 12px; border-bottom:1px solid var(--line); padding-bottom:6px;}
   footer{margin-top:50px; padding-top:18px; border-top:1px solid var(--line); font-family:var(--mono); font-size:11px; color:#999;}
+  .saved-note{
+    font-family:var(--mono); font-size:11px; line-height:1.7; color:#666;
+    background:#fff; border:1px solid var(--line); border-left:3px solid var(--navy);
+    padding:12px 16px; margin-bottom:20px;
+  }
   .error{color:var(--bad); font-family:var(--mono); font-size:13px; margin-top:14px;}
   .error a{color:var(--bad);}
   .loading{display:flex; gap:6px; align-items:center; font-family:var(--mono); font-size:12px; color:var(--navy);}
@@ -81,20 +86,20 @@
   <header>
     <div class="eyebrow">Live Tool — Not a Mockup</div>
     <h1>Email QA Copilot</h1>
-    <div class="sub">Paste raw HTML email code below. Claude reviews it the way I do before any campaign ships: broken/missing alt text, spam-trigger language, missing preheader, weak CTA structure, and mobile-responsiveness risk — then returns a prioritized report. Bring your own Anthropic API key below — it's used directly from your browser and nothing is stored or billed on my end.</div>
+    <div class="sub">Paste raw HTML email code below. Claude reviews it the way I do before any campaign ships: broken/missing alt text, spam-trigger language, missing preheader, weak CTA structure, and mobile-responsiveness risk — then returns a prioritized report. Click "See a Sample Report" to view a saved run with nothing to set up. To audit your own code, add an Anthropic API key below — it's used directly from your browser and nothing is stored or billed on my end.</div>
     <div class="byline">Built and operated by Tony Lucio · linkedin.com/in/tonyl01</div>
   </header>
 
-  <div class="keyrow">
-    <input type="password" id="apiKeyInput" placeholder="sk-ant-... (your Anthropic API key)" autocomplete="off">
-    <div class="keynote">Stored only in your browser's local storage and sent directly to Anthropic when you click Run — it never passes through my server. Get a free key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.</div>
-  </div>
-
   <textarea id="htmlInput" placeholder="Paste your HTML email code here..."></textarea>
   <div class="row">
-    <button id="analyzeBtn">Run QA Analysis</button>
-    <button class="sample" id="sampleBtn">Load Sample Email</button>
+    <button id="sampleBtn">See a Sample Report</button>
+    <button class="sample" id="analyzeBtn">Run QA Analysis</button>
     <span class="status" id="status"></span>
+  </div>
+
+  <div class="keyrow">
+    <input type="password" id="apiKeyInput" placeholder="sk-ant-... (your Anthropic API key)" autocomplete="off">
+    <div class="keynote">Only needed to run the tool on your own code. The sample report above needs no key. Your key is stored only in your browser's local storage and sent directly to Anthropic when you click Run — it never passes through my server. Get a key at <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>.</div>
   </div>
 
   <div id="report"></div>
@@ -112,6 +117,27 @@ const SAMPLE = `<table width="600" cellpadding="0" cellspacing="0">
 <a href="#">Shop Now</a>
 </td></tr>
 </table>`;
+
+// Saved output from a real run of this tool against SAMPLE, so the report is
+// viewable without an API key.
+const SAMPLE_REPORT = [
+  {severity:"critical", title:"Banner image has no alt attribute",
+   detail:"The <img src=\"banner.jpg\"> at the top carries the entire offer and has no alt text. With images blocked, which is the default in several clients, the email opens as an empty box."},
+  {severity:"critical", title:"Primary CTA links nowhere",
+   detail:"The \"Shop Now\" anchor is href=\"#\", so every click lands back on the same message. This is the single most expensive defect in the file."},
+  {severity:"critical", title:"Fixed 600px table with no mobile handling",
+   detail:"width=\"600\" is hardcoded with no media query and no max-width on the image. On a 375px screen this scrolls sideways or scales the type past readable."},
+  {severity:"minor", title:"No preheader text",
+   detail:"Nothing is set, so the inbox preview will pull the first readable line and repeat the headline next to the subject line."},
+  {severity:"minor", title:"Shortened link on a third-party domain",
+   detail:"The bit.ly link hides its destination and shares reputation with every other sender on that shortener. Use a branded or direct HTTPS link."},
+  {severity:"minor", title:"No tracking parameters on any link",
+   detail:"Neither link carries UTM parameters, so nothing in this send will attribute correctly in analytics."},
+  {severity:"copy", title:"Spam-trigger language stacked throughout",
+   detail:"FREE!!!, \"Act Now\", \"buy now\", \"save BIG $$$\" and repeated exclamation points appear within the first two lines. Any one is survivable; together they raise filtering risk on a cold segment."},
+  {severity:"copy", title:"CTA text says nothing about the destination",
+   detail:"\"here\" and \"Shop Now\" give the reader no reason to click. Name the offer instead."}
+];
 
 const KEY_STORAGE = 'qa_copilot_anthropic_key';
 const apiKeyInput = document.getElementById('apiKeyInput');
@@ -133,8 +159,47 @@ function escapeHtml(str) {
     .replace(/'/g, '&#39;');
 }
 
+function renderReport(issues, saved) {
+  const counts = issues.reduce((acc, i) => {
+    if (i.severity === 'critical') acc.critical++;
+    else if (i.severity === 'minor') acc.minor++;
+    else if (i.severity === 'copy') acc.copy++;
+    return acc;
+  }, {critical:0, minor:0, copy:0});
+
+  let out = '';
+  if (saved) {
+    out += '<div class="saved-note">Saved output from an earlier run of this tool against the sample email above. Add your own key below to run it live on your own code.</div>';
+  }
+  out += `<div class="summary-bar">
+    <div class="summary-cell critical"><div class="summary-num">${counts.critical}</div><div class="summary-label">Critical</div></div>
+    <div class="summary-cell minor"><div class="summary-num">${counts.minor}</div><div class="summary-label">Minor</div></div>
+    <div class="summary-cell good"><div class="summary-num">${counts.copy}</div><div class="summary-label">Copy Notes</div></div>
+  </div>`;
+
+  const order = {critical:0, minor:1, copy:2};
+  const sorted = [...issues].sort((a,b) => (order[a.severity] ?? 3) - (order[b.severity] ?? 3));
+
+  out += '<div class="section-label">Findings</div>';
+  if (sorted.length === 0) {
+    out += '<div class="issue"><div class="issue-detail">No issues found.</div></div>';
+  }
+  sorted.forEach(issue => {
+    const sev = escapeHtml(issue.severity || 'minor');
+    out += `<div class="issue ${sev}">
+      <div class="issue-tag">${sev}</div>
+      <div class="issue-title">${escapeHtml(issue.title || '')}</div>
+      <div class="issue-detail">${escapeHtml(issue.detail || '')}</div>
+    </div>`;
+  });
+  return out;
+}
+
 document.getElementById('sampleBtn').onclick = () => {
   document.getElementById('htmlInput').value = SAMPLE;
+  document.getElementById('report').innerHTML = renderReport(SAMPLE_REPORT, true);
+  document.getElementById('status').textContent = 'Sample report loaded. No key used.';
+  document.getElementById('report').scrollIntoView({behavior:'smooth', block:'start'});
 };
 
 document.getElementById('analyzeBtn').onclick = async () => {
@@ -213,37 +278,7 @@ ${html}`;
     }
 
     const issues = Array.isArray(parsed.issues) ? parsed.issues : [];
-    const counts = issues.reduce((acc, i) => {
-      if (i.severity === 'critical') acc.critical++;
-      else if (i.severity === 'minor') acc.minor++;
-      else if (i.severity === 'copy') acc.copy++;
-      return acc;
-    }, {critical:0, minor:0, copy:0});
-
-    let html_out = '';
-    html_out += `<div class="summary-bar">
-      <div class="summary-cell critical"><div class="summary-num">${counts.critical}</div><div class="summary-label">Critical</div></div>
-      <div class="summary-cell minor"><div class="summary-num">${counts.minor}</div><div class="summary-label">Minor</div></div>
-      <div class="summary-cell good"><div class="summary-num">${counts.copy}</div><div class="summary-label">Copy Notes</div></div>
-    </div>`;
-
-    const order = {critical:0, minor:1, copy:2};
-    const sorted = [...issues].sort((a,b) => (order[a.severity] ?? 3) - (order[b.severity] ?? 3));
-
-    html_out += '<div class="section-label">Findings</div>';
-    if (sorted.length === 0) {
-      html_out += '<div class="issue"><div class="issue-detail">No issues found.</div></div>';
-    }
-    sorted.forEach(issue => {
-      const sev = escapeHtml(issue.severity || 'minor');
-      html_out += `<div class="issue ${sev}">
-        <div class="issue-tag">${sev}</div>
-        <div class="issue-title">${escapeHtml(issue.title || '')}</div>
-        <div class="issue-detail">${escapeHtml(issue.detail || '')}</div>
-      </div>`;
-    });
-
-    reportEl.innerHTML = html_out;
+    reportEl.innerHTML = renderReport(issues, false);
     statusEl.textContent = 'Analysis complete.';
   } catch (err) {
     reportEl.innerHTML = `<div class="error">Error running analysis: ${escapeHtml(err.message)}. Try again.</div>`;
