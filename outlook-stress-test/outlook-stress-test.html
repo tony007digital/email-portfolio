@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Outlook Stress Test</title>
+<!--[if mso]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+<style type="text/css">
+  body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; }
+  body { margin: 0; padding: 0; width: 100% !important; background-color: #f4f4f4; }
+  .label { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 16px; color: #ffffff; background-color: #222222; padding: 8px 16px; font-weight: bold; }
+  .note { font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #555555; padding: 8px 16px 16px 16px; }
+  .body-text { font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 24px; color: #222222; }
+  @media screen and (max-width: 600px) {
+    .wrapper { width: 100% !important; }
+    .stack { display: block !important; width: 100% !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f4f4;">
+
+<!-- Preheader. Test 0: does the fallback text leak into the inbox preview? -->
+<div style="display:none; font-size:1px; color:#f4f4f4; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden;">
+Outlook stress test. Each block isolates one known failure mode.
+</div>
+<div style="display:none; font-size:1px; color:#f4f4f4; line-height:1px; max-height:0px; max-width:0px; opacity:0; overflow:hidden;">
+&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;&#847;&zwnj;&nbsp;&#8199;&shy;
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f4f4;">
+<tr>
+<td align="center" style="padding:24px 0;">
+
+<!--[if mso]>
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"><tr><td>
+<![endif]-->
+<table role="presentation" class="wrapper" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background-color:#ffffff;">
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 1 &mdash; 1px gaps: odd px values (EXPECT SEAMS)</td></tr>
+  <tr><td class="note">Padding and line-height set to 15px and 25px. 15px converts to 11.25pt in Word's engine, which rounds and leaves sub-pixel seams between the colored rows.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+      <tr><td style="background-color:#1a5f7a; padding:15px; font-family:Arial,sans-serif; font-size:15px; line-height:25px; color:#ffffff;">Row A, 15px padding</td></tr>
+      <tr><td style="background-color:#1a5f7a; padding:15px; font-family:Arial,sans-serif; font-size:15px; line-height:25px; color:#ffffff;">Row B, same color, should be seamless</td></tr>
+      <tr><td style="background-color:#1a5f7a; padding:15px; font-family:Arial,sans-serif; font-size:15px; line-height:25px; color:#ffffff;">Row C, look for hairlines between rows</td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 2 &mdash; 1px gaps: multiples of 4 (EXPECT CLEAN)</td></tr>
+  <tr><td class="note">Identical structure, padding 16px and line-height 24px. 16px is exactly 12pt and 24px is exactly 18pt, so no rounding occurs. Compare against Test 1.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+      <tr><td style="background-color:#2d7d46; padding:16px; font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#ffffff; mso-line-height-rule:exactly;">Row A, 16px padding</td></tr>
+      <tr><td style="background-color:#2d7d46; padding:16px; font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#ffffff; mso-line-height-rule:exactly;">Row B, same color, should be seamless</td></tr>
+      <tr><td style="background-color:#2d7d46; padding:16px; font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#ffffff; mso-line-height-rule:exactly;">Row C, this block should show no hairlines</td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 3 &mdash; margin vs padding</td></tr>
+  <tr><td class="note">Word's engine ignores margin on table cells and honors padding. The first box sets 24px margin, the second sets 24px padding. Only the second should be inset.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr><td style="background-color:#eeeeee; margin:24px;">
+        <span class="body-text">MARGIN 24px. If this text touches the grey edge, margin was dropped.</span>
+      </td></tr>
+      <tr><td height="8" style="font-size:0; line-height:0;">&nbsp;</td></tr>
+      <tr><td style="background-color:#eeeeee; padding:24px;">
+        <span class="body-text">PADDING 24px. This should be inset in every client.</span>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 4 &mdash; background image, no VML (EXPECT DROP)</td></tr>
+  <tr><td class="note">CSS background-image with no VML fallback. Outlook should drop the image entirely and show only the fallback colour.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr><td height="120" style="background-color:#7a1a1a; background-image:url('https://tony007digital.github.io/email-portfolio/outlook-stress-test/bg.png'); background-size:cover; background-position:center; text-align:center;">
+        <span style="font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#ffffff; font-weight:bold;">Red background means the image was dropped</span>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 5 &mdash; background image with VML (EXPECT RENDER)</td></tr>
+  <tr><td class="note">Same image, wrapped in VML for Outlook. If this renders the image and Test 4 does not, VML is doing its job.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <div style="background-color:#7a1a1a;">
+    <!--[if mso]>
+    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:568px;height:120px;">
+      <v:fill type="frame" src="https://tony007digital.github.io/email-portfolio/outlook-stress-test/bg.png" color="#7a1a1a" />
+      <v:textbox inset="0,0,0,0">
+    <![endif]-->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td height="120" style="background-image:url('https://tony007digital.github.io/email-portfolio/outlook-stress-test/bg.png'); background-size:cover; background-position:center; text-align:center;">
+          <span style="font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#ffffff; font-weight:bold;">Image here means VML worked</span>
+        </td></tr>
+      </table>
+    <!--[if mso]>
+      </v:textbox>
+    </v:rect>
+    <![endif]-->
+    </div>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 6 &mdash; max-width on a div (EXPECT IGNORED)</td></tr>
+  <tr><td class="note">A div with max-width 300px. Word's engine discards max-width, so this should run full width in Outlook and stay narrow everywhere else.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <div style="max-width:300px; background-color:#4a3f8f; padding:16px;">
+      <span style="font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#ffffff;">If this purple block is full width, max-width was discarded.</span>
+    </div>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 7 &mdash; line-height without mso-line-height-rule</td></tr>
+  <tr><td class="note">Both paragraphs set line-height 32px. The first omits mso-line-height-rule, the second sets it to exactly. Outlook adds its own leading to the first.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr><td style="background-color:#f8f8f8; padding:16px; font-family:Arial,sans-serif; font-size:16px; line-height:32px; color:#222222;">
+        NO RULE. Line one of this paragraph.<br />Line two should sit 32px below line one.<br />Line three.
+      </td></tr>
+      <tr><td height="8" style="font-size:0; line-height:0;">&nbsp;</td></tr>
+      <tr><td style="background-color:#f8f8f8; padding:16px; font-family:Arial,sans-serif; font-size:16px; line-height:32px; mso-line-height-rule:exactly; color:#222222;">
+        RULE SET. Line one of this paragraph.<br />Line two should sit 32px below line one.<br />Line three.
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 8 &mdash; div float layout vs table layout</td></tr>
+  <tr><td class="note">Two columns built with inline-block divs, then the same two columns built with a table. Outlook should stack the divs and keep the table side by side.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <div style="font-size:0;">
+      <div class="stack" style="display:inline-block; width:48%; vertical-align:top; background-color:#d9e8f5; padding:12px; box-sizing:border-box;">
+        <span style="font-family:Arial,sans-serif; font-size:14px; line-height:20px; color:#222222;">DIV col 1</span>
+      </div><div class="stack" style="display:inline-block; width:48%; vertical-align:top; background-color:#c5dcee; padding:12px; box-sizing:border-box;">
+        <span style="font-family:Arial,sans-serif; font-size:14px; line-height:20px; color:#222222;">DIV col 2</span>
+      </div>
+    </div>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;">
+      <tr>
+        <td width="50%" style="background-color:#e8d9f5; padding:12px; font-family:Arial,sans-serif; font-size:14px; line-height:20px; color:#222222;">TABLE col 1</td>
+        <td width="50%" style="background-color:#dcc5ee; padding:12px; font-family:Arial,sans-serif; font-size:14px; line-height:20px; color:#222222;">TABLE col 2</td>
+      </tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 9 &mdash; border-radius button, CSS vs VML</td></tr>
+  <tr><td class="note">A CSS rounded button, then a VML roundrect. Outlook should square off the first and round the second.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+      <tr><td align="center" bgcolor="#1a5f7a" style="border-radius:24px; padding:12px 32px;">
+        <a href="https://example.com" style="font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#ffffff; text-decoration:none; display:inline-block;">CSS radius</a>
+      </td></tr>
+    </table>
+    <div style="height:8px; line-height:8px; font-size:0;">&nbsp;</div>
+    <div>
+      <!--[if mso]>
+      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://example.com" style="height:48px;v-text-anchor:middle;width:200px;" arcsize="50%" stroke="f" fillcolor="#2d7d46">
+        <w:anchorlock/>
+        <center style="color:#ffffff;font-family:Arial,sans-serif;font-size:16px;font-weight:bold;">VML roundrect</center>
+      </v:roundrect>
+      <![endif]-->
+      <!--[if !mso]><!-- -->
+      <a href="https://example.com" style="background-color:#2d7d46; border-radius:24px; color:#ffffff; display:inline-block; font-family:Arial,sans-serif; font-size:16px; font-weight:bold; line-height:48px; text-align:center; text-decoration:none; width:200px;">VML roundrect</a>
+      <!--<![endif]-->
+    </div>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 10 &mdash; image gap and alt text styling</td></tr>
+  <tr><td class="note">An image with display:block and a deliberately broken image below it. The broken one shows whether alt text inherits your styling or falls back to tiny black serif.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <img src="https://tony007digital.github.io/email-portfolio/outlook-stress-test/good.png" width="568" alt="Working image" style="display:block; width:100%; max-width:568px; height:auto; border:0;" />
+    <div style="height:8px; line-height:8px; font-size:0;">&nbsp;</div>
+    <img src="https://tony007digital.github.io/email-portfolio/outlook-stress-test/this-image-does-not-exist.png" width="568" height="80" alt="This alt text should be 18px white on dark blue, not tiny black serif" style="display:block; width:100%; max-width:568px; background-color:#1a5f7a; font-family:Arial,sans-serif; font-size:18px; line-height:24px; color:#ffffff; text-align:center; border:0;" />
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 11 &mdash; letter-spacing</td></tr>
+  <tr><td class="note">Word's engine handles letter-spacing inconsistently. Compare the tracked line against the normal one.</td></tr>
+  <tr><td style="padding:0 16px 16px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+      <tr><td style="font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#222222; letter-spacing:3px; padding-bottom:8px;">TRACKED 3PX LETTER SPACING</td></tr>
+      <tr><td style="font-family:Arial,sans-serif; font-size:16px; line-height:24px; color:#222222;">NORMAL LETTER SPACING</td></tr>
+    </table>
+  </td></tr>
+
+  <!-- ============================================= -->
+  <tr><td class="label">TEST 12 &mdash; dark mode behaviour</td></tr>
+  <tr><td class="note">A dark logo mark on white, a mid-grey text block, and a transparent-edge shape. View with dark mode on and off and compare. Several clients invert all three differently.</td></tr>
+  <tr><td style="padding:0 16px 24px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; border:1px solid #dddddd;">
+      <tr><td align="center" style="padding:16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td width="40" height="40" bgcolor="#111111" style="font-size:0; line-height:0;">&nbsp;</td>
+        </tr></table>
+        <div style="height:12px; line-height:12px; font-size:0;">&nbsp;</div>
+        <span style="font-family:Arial,sans-serif; font-size:14px; line-height:20px; color:#666666;">Mid-grey text set to #666666. Watch what dark mode does to it.</span>
+      </td></tr>
+    </table>
+  </td></tr>
+
+  <tr><td style="padding:0 16px 24px 16px; font-family:Arial,sans-serif; font-size:11px; line-height:16px; color:#888888;">
+    Outlook stress test. Each block isolates one documented Outlook rendering behaviour. Render in classic Outlook for Windows, new Outlook for Windows, Outlook for Mac, Gmail web, Gmail mobile, Apple Mail and iOS Mail, then record which tests fail in which client.
+  </td></tr>
+
+</table>
+<!--[if mso]>
+</td></tr></table>
+<![endif]-->
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
