@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Dev Career Hub</title>
+<meta name="description" content="For people getting into email developer roles and email developers moving up: check your resume against a posting, see the skills employers asked for this week, and find live roles with pay.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout idea: an inbox-style tool bench. Three answer cards sit above the fold; each opens its answer in place. Detail below is optional. */
+  --paper:#f3f5f7;
+  --surface:#ffffff;
+  --ink:#0f1b2d;
+  --muted:#556170;
+  --line:#d9dee5;
+  --accent:#1f5eff;
+  --accent-soft:#e6edff;
+  --have:#137a43;
+  --have-soft:#e2f4ea;
+  --miss:#9a5b00;
+  --miss-soft:#fff1d6;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius:10px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0c121b; --surface:#141c28; --ink:#e8edf4; --muted:#9aa6b5; --line:#263244;
+    --accent:#6f95ff; --accent-soft:#1a2747; --have:#5fd394; --have-soft:#11291d; --miss:#f0b65a; --miss-soft:#2e230f;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0c121b; --surface:#141c28; --ink:#e8edf4; --muted:#9aa6b5; --line:#263244;
+  --accent:#6f95ff; --accent-soft:#1a2747; --have:#5fd394; --have-soft:#11291d; --miss:#f0b65a; --miss-soft:#2e230f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font:16px/1.55 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;text-wrap:balance;margin:0}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* top bar */
+.topbar{border-bottom:1px solid var(--line);background:var(--surface)}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+.brand{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:18px}
+.brand span{color:var(--accent)}
+.stamp{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+
+/* hero */
+.hero{padding:28px 0 14px}
+.hero h1{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.02em;max-width:22ch}
+.hero p{margin:10px 0 0;color:var(--muted);max-width:62ch}
+
+/* cards */
+.bench{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:12px 0 6px}
+.card{order:1;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;gap:6px;transition:border-color .15s, box-shadow .15s}
+.card:hover{border-color:var(--accent)}
+.card[aria-expanded="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.card .k{font-family:var(--mono);font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
+.card h2{font-size:21px;font-weight:700}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.card .go{margin-top:auto;padding-top:6px;font-weight:600;font-size:14px;color:var(--accent)}
+.panel{order:2;grid-column:1/-1;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.panel[hidden]{display:none}
+@media (max-width:760px){
+  .bench{grid-template-columns:1fr;gap:10px}
+  .card,.panel{order:0}
+  .card{padding:12px 14px;gap:4px}
+  .card h2{font-size:19px}
+  .card .go{display:none}
+  .hero{padding:18px 0 8px}
+  .panel{padding:16px}
+}
+
+/* resume tool */
+.rt{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:760px){.rt{grid-template-columns:1fr}}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+.hint{font-weight:400;color:var(--muted)}
+textarea,input[type=text],input[type=email],input[type=url],select{width:100%;font:15px/1.5 var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+textarea{resize:vertical}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{font:600 15px var(--body);border-radius:8px;padding:10px 16px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.small{padding:6px 12px;font-size:14px}
+.example-tag{font-family:var(--mono);font-size:12px;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:2px 8px}
+.result{border-left:3px solid var(--accent);padding-left:16px;display:flex;flex-direction:column;gap:14px}
+.score{display:flex;align-items:baseline;gap:10px}
+.score .n{font-family:var(--display);font-size:44px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
+.meter{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--accent);border-radius:99px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13.5px;border-radius:999px;padding:3px 10px;border:1px solid transparent}
+.chip.have{background:var(--have-soft);color:var(--have)}
+.chip.miss{background:var(--miss-soft);color:var(--miss);font-weight:600}
+.headline-out{font-family:var(--mono);font-size:14.5px;background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:10px 12px}
+.small{font-size:13.5px;color:var(--muted)}
+
+/* toggles */
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;background:var(--paper)}
+.seg button{font:600 14px var(--body);border:0;background:transparent;color:var(--muted);padding:6px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12)}
+.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.panel-head h3{font-size:19px}
+
+/* skills */
+.skills{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
+.skills li{display:grid;grid-template-columns:28px 1fr auto;gap:4px 12px;align-items:center}
+.skills .rank{font-family:var(--mono);color:var(--muted);font-size:14px}
+.skills .name{font-weight:600}
+.skills .count{font-family:var(--mono);font-size:13.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.skills .bar{grid-column:2/4;height:6px;border-radius:99px;background:var(--line);overflow:hidden}
+.skills .bar i{display:block;height:100%;background:var(--accent)}
+.skills .learn{grid-column:2/4;font-size:14px;color:var(--muted)}
+
+/* jobs */
+.jobs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.jobs li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:12px 0;border-top:1px solid var(--line)}
+.jobs li:first-child{border-top:0;padding-top:0}
+.jobs .t{font-weight:600}
+.jobs .pay{font-family:var(--mono);font-size:14px;text-align:right;font-variant-numeric:tabular-nums}
+.jobs .meta{font-size:13.5px;color:var(--muted)}
+.jobs .screens{grid-column:1/-1;font-size:14px}
+.jobs .screens b{color:var(--miss)}
+.stale{font-family:var(--mono);font-size:11.5px;background:var(--miss-soft);color:var(--miss);border-radius:4px;padding:1px 6px;margin-left:6px}
+
+/* feedback strip */
+.strip{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 0 26px}
+.strip .q{font-weight:600}
+.strip form{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.strip input[type=email]{width:240px}
+.note{font-size:13.5px;color:var(--muted)}
+.note.ok{color:var(--have)}
+
+/* lower sections */
+.more{border-top:1px solid var(--line);padding:34px 0;display:grid;grid-template-columns:260px 1fr;gap:28px}
+@media (max-width:760px){.more{grid-template-columns:1fr;gap:12px}}
+.more h2{font-size:24px;font-weight:700}
+.more .lede{color:var(--muted);margin:8px 0 0;font-size:15px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.box h3{font-size:17px;margin-bottom:6px}
+.box p,.box ul{margin:0;font-size:15px}
+.box ul{padding-left:18px}
+.box li+li{margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:500}
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+.fact{display:flex;gap:14px;align-items:baseline}
+.fact .big{font-family:var(--display);font-weight:800;font-size:30px;min-width:3.2ch;font-variant-numeric:tabular-nums}
+.facts{display:flex;flex-direction:column;gap:12px}
+form.stack{display:flex;flex-direction:column;gap:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.grid2{grid-template-columns:1fr}}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;font-weight:400}
+.check input{margin-top:4px}
+.who{display:flex;gap:18px;align-items:center}
+.who img{width:96px;height:96px;border-radius:50%;flex:none}
+footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);font-size:13.5px}
+@media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">Email Dev <span>Career Hub</span></div>
+    <div class="stamp">285 postings logged, 65 read in full · updated Nov 23, 2026 · refreshed Fridays</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Find out what employers screen for before you hit apply.</h1>
+    <p>For people getting into email developer roles and email developers moving up. Pick what you need below. Each answer opens right here, no signup.</p>
+  </section>
+
+  <section class="bench" aria-label="Instant answers">
+    <button class="card" id="card-resume" aria-expanded="true" aria-controls="panel-resume" data-key="resume">
+      <span class="k">Under 60 seconds</span>
+      <h2>Check my resume</h2>
+      <p>Paste your headline and one job posting. Get a match score, the 3 missing keywords and a rewritten headline.</p>
+      <span class="go">Open the check</span>
+    </button>
+    <div class="panel" id="panel-resume" role="region" aria-labelledby="card-resume">
+      <div class="rt">
+        <form id="rt-form" class="stack" novalidate>
+          <div>
+            <label for="rt-head">Your resume headline <span class="hint">(or paste your whole resume)</span></label>
+            <textarea id="rt-head" rows="3"></textarea>
+          </div>
+          <div>
+            <label for="rt-post">The job posting <span class="hint">(paste the requirements)</span></label>
+            <textarea id="rt-post" rows="7"></textarea>
+          </div>
+          <div class="row">
+            <button class="btn" type="submit">Check the match</button>
+            <button class="btn ghost" type="button" id="rt-clear">Clear and paste mine</button>
+            <span class="example-tag" id="rt-tag">Example loaded</span>
+          </div>
+          <p class="small">Runs in your browser. Nothing you paste is saved or sent.</p>
+        </form>
+        <div class="result" id="rt-result" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <button class="card" id="card-skills" aria-expanded="false" aria-controls="panel-skills" data-key="skills">
+      <span class="k">From this week's postings</span>
+      <h2>What skills do I need?</h2>
+      <p>The top 5 skills employers named, how many postings asked, and one free way to learn each.</p>
+      <span class="go">See the skills</span>
+    </button>
+    <div class="panel" id="panel-skills" role="region" aria-labelledby="card-skills" hidden>
+      <div class="panel-head">
+        <h3 id="skills-title">Getting in: top 5 skills</h3>
+        <div class="seg" role="group" aria-label="Choose your path">
+          <button type="button" data-path="in" aria-pressed="true">Getting in</button>
+          <button type="button" data-path="up" aria-pressed="false">Moving up</button>
+        </div>
+      </div>
+      <ol class="skills" id="skills-list"></ol>
+      <p class="small" id="skills-note" style="margin-top:14px"></p>
+    </div>
+
+    <button class="card" id="card-jobs" aria-expanded="false" aria-controls="panel-jobs" data-key="jobs">
+      <span class="k">Live this week</span>
+      <h2>Where are the jobs?</h2>
+      <p>5 remote and 5 LA roles, with pay and the one thing each posting screens for.</p>
+      <span class="go">See the roles</span>
+    </button>
+    <div class="panel" id="panel-jobs" role="region" aria-labelledby="card-jobs" hidden>
+      <div class="panel-head">
+        <h3 id="jobs-title">Remote roles</h3>
+        <div class="seg" role="group" aria-label="Choose a location">
+          <button type="button" data-loc="remote" aria-pressed="true">Remote</button>
+          <button type="button" data-loc="la" aria-pressed="false">Los Angeles</button>
+        </div>
+      </div>
+      <ul class="jobs" id="jobs-list"></ul>
+      <p class="small" style="margin-top:12px">From Indeed and LinkedIn job alerts, checked Nov 23, 2026. Titles open the posting. Pay is what the posting lists. 56 LA-area roles were logged since Nov 15, most through LinkedIn alerts.</p>
+    </div>
+  </section>
+
+  <section class="strip" aria-label="Feedback and weekly report">
+    <form name="useful" method="POST" data-netlify="true" class="row" id="useful-form">
+      <input type="hidden" name="form-name" value="useful">
+      <input type="hidden" name="card" id="useful-card" value="resume">
+      <span class="q" id="useful-q">Was this useful?</span>
+      <button class="btn small ghost" type="submit" name="vote" value="yes">Yes</button>
+      <button class="btn small ghost" type="submit" name="vote" value="no">No</button>
+      <span class="note" id="useful-note" aria-live="polite"></span>
+    </form>
+    <form name="report-signup" method="POST" data-netlify="true" id="report-form">
+      <input type="hidden" name="form-name" value="report-signup">
+      <label for="report-email" class="small" style="margin:0;font-weight:500">Get next Monday's skills and roles</label>
+      <input type="email" id="report-email" name="email" placeholder="you@email.com" required>
+      <button class="btn small" type="submit">Send it to me</button>
+      <span class="note" id="report-note" aria-live="polite"></span>
+    </form>
+  </section>
+
+  <section class="more" id="stories">
+    <div>
+      <h2>Hired recently? Help the next person</h2>
+      <p class="lede">If you just landed an email developer, lifecycle or email ops role, share what got you hired. Every story is reviewed before it goes live.</p>
+    </div>
+    <div class="cols">
+      <div class="box">
+        <h3>What helps most</h3>
+        <ul>
+          <li>Interview questions you were asked, and how you answered</li>
+          <li>Your portfolio, or one piece and why it worked</li>
+          <li>The resume headline you applied with</li>
+          <li>The type of take-home task (not the employer's files)</li>
+          <li>What the job actually used in the first 90 days</li>
+        </ul>
+        <p class="small" style="margin-top:12px">First name or anonymous, your choice. No confidential employer material or client data.</p>
+      </div>
+      <form class="box stack" name="hired-story" method="POST" data-netlify="true" id="story-form">
+        <input type="hidden" name="form-name" value="hired-story">
+        <div class="grid2">
+          <div><label for="s-role">Role you landed</label><input type="text" id="s-role" name="role" placeholder="Email Developer"></div>
+          <div><label for="s-platform">Main platform</label><input type="text" id="s-platform" name="platform" placeholder="Klaviyo, Braze, Marketing Cloud"></div>
+        </div>
+        <div><label for="s-q">One interview question and your answer</label><textarea id="s-q" name="interview" rows="3"></textarea></div>
+        <div class="grid2">
+          <div><label for="s-head">Headline you applied with</label><input type="text" id="s-head" name="headline"></div>
+          <div><label for="s-port">Portfolio link <span class="hint">(optional)</span></label><input type="url" id="s-port" name="portfolio" placeholder="https://"></div>
+        </div>
+        <div class="grid2">
+          <div><label for="s-name">Name to show</label><input type="text" id="s-name" name="display_name" placeholder="First name or Anonymous"></div>
+          <div><label for="s-email">Your email <span class="hint">(not shown)</span></label><input type="email" id="s-email" name="email"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="s-ok" name="consent" value="yes" required> This is my own experience and has no confidential employer material.</label>
+        <div class="row"><button class="btn" type="submit">Share my story</button><span class="note" id="story-note" aria-live="polite"></span></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="more">
+    <div>
+      <h2>Why applications go quiet</h2>
+      <p class="lede">From 15 tracked applications to email, lifecycle and marketing ops roles, Sep to Nov 2026.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><span class="big">0</span><span>human replies from 15 cold applications. Portals alone didn't produce a single screen.</span></div>
+      <div class="fact"><span class="big">2–6</span><span>days to the 4 rejections. The two fastest came right after form answers that showed a gap: years of SMS, no Braze, no retention ownership. That points to knockout questions, not the resume.</span></div>
+      <div class="fact"><span class="big">11</span><span>got no answer at all. 9 of those postings named a main platform the resume didn't list, such as HubSpot, Braze, Marketo or Iterable.</span></div>
+      <p class="small">What to do with it: answer knockout questions as written in the posting, apply in the first 72 hours, and send one human message to the hiring manager the same day.</p>
+    </div>
+  </section>
+
+  <section class="more">
+    <div>
+      <h2>The skill gap, moving up</h2>
+      <p class="lede">You already build email. Here's what the higher-paying seats screen for on top of that.</p>
+    </div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th scope="col">You already have</th><th scope="col">What the next role screens for</th></tr></thead>
+        <tbody>
+          <tr><td>HTML and CSS for email, cross-client rendering</td><td>Journey design and segmentation</td></tr>
+          <tr><td>QA and troubleshooting</td><td>Reading test results and deciding what to change</td></tr>
+          <tr><td>One or more ESPs</td><td>Depth in one stack, plus its data: Liquid, AMPscript or SQL</td></tr>
+          <tr><td>Deliverability basics</td><td>KPI ownership and reporting for stakeholders</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="more">
+    <div>
+      <h2>Tell us where you're stuck</h2>
+      <p class="lede">One line is enough. Answers shape what this page adds next.</p>
+    </div>
+    <form class="box stack" name="stuck" method="POST" data-netlify="true" id="stuck-form">
+      <input type="hidden" name="form-name" value="stuck">
+      <div class="grid2">
+        <div><label for="k-name">First name</label><input type="text" id="k-name" name="name"></div>
+        <div><label for="k-email">Email <span class="hint">(optional)</span></label><input type="email" id="k-email" name="email"></div>
+      </div>
+      <div>
+        <label for="k-stage">Where are you now?</label>
+        <select id="k-stage" name="stage">
+          <option>Getting into my first email role</option>
+          <option>Moving up from an email role</option>
+          <option>Between roles</option>
+        </select>
+      </div>
+      <div><label for="k-block">What's blocking you?</label><input type="text" id="k-block" name="blocker" placeholder="Example: every posting asks for Braze and I've only used Mailchimp" required></div>
+      <div class="row"><button class="btn" type="submit">Send it</button><span class="note" id="stuck-note" aria-live="polite"></span></div>
+    </form>
+  </section>
+
+  <section class="more">
+    <div>
+      <h2>Who runs this</h2>
+    </div>
+    <div class="who">
+      <img src="tony.png" alt="Tony Lucio" width="96" height="96">
+      <p style="margin:0;max-width:60ch">I'm Tony Lucio, an email developer and QA specialist with 10+ years in HTML email, multi-ESP sending and pharma email. I'm job hunting too, so this page runs on the same data I use. Free tool: <a href="https://github.com/tony007digital/mailprompt">mailprompt</a>, a pre-send QA checker for HTML email you can use to build portfolio proof.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Postings: 285 email, lifecycle, CRM and marketing ops postings logged Nov 15 to 23, 2026, from Indeed searches and LinkedIn job alerts across the US. 65 different postings were read in full; skill and platform counts come from those 65, with repeat listings of the same job counted once. Refreshed every Friday.</div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- data: postings logged Nov 15 to 23, 2026 ---------- */
+  var SKILLS = {
+    "in": {
+      title: "Getting in: top 5 skills",
+      total: 24,
+      note: "From 24 entry and mid-level postings read in full, Nov 15 to 23. Also named in 12 of 24: data and integrations. Platforms named most: HubSpot and Salesforce Marketing Cloud (5 of 24 each), Braze (4 of 24).",
+      items: [
+        {name:"Reporting and analytics", n:19, learn:"Google Analytics 4 courses on Skillshop", url:"https://skillshop.withgoogle.com/"},
+        {name:"Segmenting audiences", n:17, learn:"HubSpot Academy email marketing course", url:"https://academy.hubspot.com/"},
+        {name:"Building automated flows", n:15, learn:"Klaviyo Academy flows courses", url:"https://academy.klaviyo.com/"},
+        {name:"QA before every send", n:12, learn:"Check client support on Can I Email", url:"https://www.caniemail.com/"},
+        {name:"A/B testing", n:12, learn:"Klaviyo Academy testing lessons", url:"https://academy.klaviyo.com/"}
+      ]
+    },
+    "up": {
+      title: "Moving up: top 5 skills",
+      total: 41,
+      note: "From 41 senior, manager and director postings read in full, Nov 15 to 23. Next: personalization and A/B testing (21 of 41 each). Platforms named most: Klaviyo (10 of 41), Salesforce Marketing Cloud and Braze (7 of 41 each).",
+      items: [
+        {name:"Owning reporting and KPIs", n:40, learn:"Google Analytics 4 courses on Skillshop", url:"https://skillshop.withgoogle.com/"},
+        {name:"Journeys and automated flows", n:34, learn:"Salesforce Trailhead Journey Builder modules", url:"https://trailhead.salesforce.com/"},
+        {name:"Segmentation strategy", n:33, learn:"HubSpot Academy email marketing course", url:"https://academy.hubspot.com/"},
+        {name:"Project management", n:31, learn:"Asana Academy courses", url:"https://academy.asana.com/"},
+        {name:"Data and integrations", n:24, learn:"Salesforce Trailhead Data Cloud modules", url:"https://trailhead.salesforce.com/"}
+      ]
+    }
+  };
+
+  var JOBS = {
+    remote: [
+      {t:"Lifecycle Marketing Coordinator, CRM", c:"Instacart", loc:"Remote", pay:"$86k–$109.5k", posted:"Nov 5", screens:"Building, QA'ing and launching campaigns in an ESP yourself (Braze preferred)", url:"https://to.indeed.com/aacj26hwkg7h"},
+      {t:"Engagement Marketing Manager (Braze)", c:"Pager Health", loc:"Remote-first", pay:"$64k–$101k", posted:"Nov 16", screens:"2+ years hands-on Braze: Canvas, segmentation and Liquid", url:"https://to.indeed.com/aagrlg4f6gvl"},
+      {t:"Manager, Learner Experience Marketing and Automation", c:"Nightingale College", loc:"Remote", pay:"$92k–$103k", posted:"Nov 16", screens:"Building workflows hands-on in Salesforce Marketing Cloud, 3+ years", url:"https://to.indeed.com/aacr9782t9sj"},
+      {t:"CRM & Lifecycle Manager (freelance)", c:"HomeExchange", loc:"Remote, US or Canada", pay:"$60–$85/hr", posted:"Nov 17", screens:"Hands-on Iterable, 15 to 20 hours a week", url:"https://to.indeed.com/aakldfb8jqtz"},
+      {t:"Director of Lifecycle Marketing", c:"Just Right Reader", loc:"Remote", pay:"$125k–$135k", posted:"Nov 20", screens:"Advanced hands-on HubSpot Marketing Hub, 8+ years B2B lifecycle", url:"https://to.indeed.com/aalq4w89qhhh"}
+    ],
+    la: [
+      {t:"Senior Manager, CRM & Loyalty (NOYZ)", c:"Beach House Group", loc:"El Segundo, hybrid 3 days", pay:"$120k–$135k", posted:"Nov 13", screens:"Klaviyo power user who has launched a loyalty program, 6 to 8+ years", url:"https://to.indeed.com/aagjn9zdfn42"},
+      {t:"Lifecycle Marketing Manager", c:"Civil Clothing", loc:"Torrance, in person", pay:"$90k–$100k", posted:"Oct 28", screens:"Klaviyo, Attentive and Shopify, plus 5 to 7+ years in lifecycle, CRM or ecommerce growth", url:"https://to.indeed.com/aaj499prvtsp"},
+      {t:"Email & SMS Marketing Manager / Graphic Designer", c:"JNCO", loc:"Los Angeles, in person", pay:"$65k–$85k", posted:"Nov 2", screens:"Klaviyo and Figma, both required", url:"https://to.indeed.com/aascrw89fy7l"},
+      {t:"Associate Manager, Email & CRM Marketing", c:"Buck Mason", loc:"Los Angeles", pay:"Not listed", posted:"on or before Oct 30, via LinkedIn", screens:"Not read in full yet. Open the posting for the requirements", url:"https://www.linkedin.com/jobs/view/4485275200/"},
+      {t:"Marketing & CRM Specialist", c:"Liton Lighting", loc:"Los Angeles, in person", pay:"$25–$40/hr", posted:"Nov 5", screens:"1+ year of B2B marketing plus practical AI use you can show", url:"https://to.indeed.com/aad92nbypbln"}
+    ]
+  };
+
+  /* ---------- helpers ---------- */
+  function el(tag, attrs, kids){
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function(k){
+      if (k === "text") n.textContent = attrs[k];
+      else if (k === "cls") n.className = attrs[k];
+      else n.setAttribute(k, attrs[k]);
+    });
+    (kids || []).forEach(function(c){ if (c) n.appendChild(c); });
+    return n;
+  }
+
+  /* ---------- cards ---------- */
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".card"));
+  var currentCard = "resume";
+  function openCard(key, focusPanel){
+    cards.forEach(function(c){
+      var on = c.getAttribute("data-key") === key;
+      c.setAttribute("aria-expanded", on ? "true" : "false");
+      document.getElementById(c.getAttribute("aria-controls")).hidden = !on;
+    });
+    currentCard = key;
+    document.getElementById("useful-card").value = key;
+    document.getElementById("useful-note").textContent = "";
+    if (focusPanel && window.matchMedia("(max-width:760px)").matches){
+      var p = document.getElementById("panel-" + key);
+      if (p && p.scrollIntoView) p.scrollIntoView({behavior:"smooth", block:"nearest"});
+    }
+  }
+  cards.forEach(function(c){
+    c.addEventListener("click", function(){
+      var key = c.getAttribute("data-key");
+      openCard(key, true);
+      try { if (location.hash !== "#" + key) history.replaceState(null, "", "#" + key); } catch(e){}
+    });
+  });
+  function fromHash(){
+    var h = (location.hash || "").replace("#","");
+    if (h === "resume" || h === "skills" || h === "jobs"){
+      openCard(h, false);
+      var c = document.getElementById("card-" + h);
+      if (c && c.scrollIntoView && window.matchMedia("(max-width:760px)").matches) c.scrollIntoView({block:"start"});
+    }
+  }
+  window.addEventListener("hashchange", fromHash);
+
+  /* ---------- skills ---------- */
+  function renderSkills(path){
+    var d = SKILLS[path];
+    document.getElementById("skills-title").textContent = d.title;
+    var list = document.getElementById("skills-list");
+    list.innerHTML = "";
+    d.items.forEach(function(s, i){
+      var bar = el("span", {cls:"bar"}, [el("i", {style:"width:" + Math.round(s.n / d.total * 100) + "%"})]);
+      var learn = el("span", {cls:"learn"});
+      learn.appendChild(document.createTextNode("Free: "));
+      learn.appendChild(el("a", {href:s.url, text:s.learn}));
+      list.appendChild(el("li", null, [
+        el("span", {cls:"rank", text:String(i + 1)}),
+        el("span", {cls:"name", text:s.name}),
+        el("span", {cls:"count", text:s.n + " of " + d.total + " postings"}),
+        bar, learn
+      ]));
+    });
+    document.getElementById("skills-note").textContent = d.note;
+    document.querySelectorAll("[data-path]").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-path") === path ? "true" : "false");
+    });
+  }
+  document.querySelectorAll("[data-path]").forEach(function(b){
+    b.addEventListener("click", function(){ renderSkills(b.getAttribute("data-path")); });
+  });
+
+  /* ---------- jobs ---------- */
+  function renderJobs(loc){
+    document.getElementById("jobs-title").textContent = loc === "remote" ? "Remote roles" : "Los Angeles area roles";
+    var list = document.getElementById("jobs-list");
+    list.innerHTML = "";
+    JOBS[loc].forEach(function(j){
+      var t = el("span", {cls:"t"}, [el("a", {href:j.url, text:j.t})]);
+      var meta = el("span", {cls:"meta", text: j.c + " · " + j.loc + " · posted " + j.posted});
+      if (j.stale) meta.appendChild(el("span", {cls:"stale", text:"60+ days old"}));
+      var screens = el("span", {cls:"screens"});
+      screens.appendChild(el("b", {text:"Screens for: "}));
+      screens.appendChild(document.createTextNode(j.screens));
+      list.appendChild(el("li", null, [
+        el("span", null, [t, el("br"), meta]),
+        el("span", {cls:"pay", text:j.pay}),
+        screens
+      ]));
+    });
+    document.querySelectorAll("[data-loc]").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-loc") === loc ? "true" : "false");
+    });
+  }
+  document.querySelectorAll("[data-loc]").forEach(function(b){
+    b.addEventListener("click", function(){ renderJobs(b.getAttribute("data-loc")); });
+  });
+
+  /* ---------- resume check ---------- */
+  var TERMS = [
+    {k:"Klaviyo", a:["klaviyo"]},
+    {k:"Braze", a:["braze"]},
+    {k:"Salesforce Marketing Cloud", a:["marketing cloud","sfmc","exacttarget"]},
+    {k:"Iterable", a:["iterable"]},
+    {k:"HubSpot", a:["hubspot"]},
+    {k:"Marketo", a:["marketo"]},
+    {k:"Eloqua", a:["eloqua"]},
+    {k:"Customer.io", a:["customer.io"]},
+    {k:"Mailchimp", a:["mailchimp"]},
+    {k:"Brevo", a:["brevo","sendinblue"]},
+    {k:"Attentive", a:["attentive"]},
+    {k:"Revinate", a:["revinate"]},
+    {k:"Veeva Approved Email", a:["veeva","approved email"]},
+    {k:"Shopify", a:["shopify"]},
+    {k:"Figma", a:["figma"]},
+    {k:"Litmus", a:["litmus","email on acid"]},
+    {k:"HTML/CSS", a:["html","css"]},
+    {k:"AMPscript", a:["ampscript"]},
+    {k:"Liquid", a:["liquid"]},
+    {k:"Handlebars", a:["handlebars"]},
+    {k:"SQL", a:["sql"]},
+    {k:"A/B testing", a:["a/b","ab test","split test","multivariate","holdout","experiment"]},
+    {k:"Segmentation", a:["segment"]},
+    {k:"Personalization", a:["personaliz","dynamic content"]},
+    {k:"Automated flows", a:["automat","flow","journey","workflow","trigger"]},
+    {k:"Lifecycle", a:["lifecycle","life cycle"]},
+    {k:"Retention", a:["retention","churn","repeat purchase"]},
+    {k:"Win-back", a:["win-back","winback","re-engagement","reengagement"]},
+    {k:"Onboarding", a:["onboarding","welcome series","welcome flow"]},
+    {k:"Deliverability", a:["deliverability","sender reputation","inbox placement"]},
+    {k:"SPF/DKIM/DMARC", a:["spf","dkim","dmarc","authentication"]},
+    {k:"QA", a:["qa","quality assurance","testing emails","proof"]},
+    {k:"Copywriting", a:["copywrit","copy "]},
+    {k:"SMS", a:["sms","text message"]},
+    {k:"Push", a:["push"]},
+    {k:"Reporting", a:["report","dashboard","kpi","metrics","analytics","ga4","google analytics","mixpanel","amplitude"]},
+    {k:"Compliance", a:["can-spam","tcpa","gdpr","ccpa","consent","compliance"]},
+    {k:"CRM", a:["crm"]},
+    {k:"Loyalty", a:["loyalty","ltv","lifetime value"]},
+    {k:"AI tools", a:[" ai ","ai tools","ai-","llm","chatgpt","claude","generative"]},
+    {k:"Cross-client rendering", a:["cross-client","rendering","responsive","mobile-first","dark mode","accessib"]}
+  ];
+  var TITLES = ["Email Developer","Email Marketing Manager","Email Marketing Specialist","Lifecycle Marketing Manager","Lifecycle Marketing Specialist","Lifecycle Marketing Coordinator","CRM Manager","CRM Specialist","Retention Marketing Manager","Marketing Automation Specialist","Marketing Operations Manager","Marketing Operations Specialist","Marketing Technology Manager","Email Operations Specialist","Deliverability Consultant","Email Production Specialist"];
+
+  function count(text, alias){
+    var n = 0, i = 0;
+    while ((i = text.indexOf(alias, i)) !== -1){ n++; i += alias.length; }
+    return n;
+  }
+  function analyze(head, post){
+    var h = " " + head.toLowerCase().replace(/\s+/g," ") + " ";
+    var p = " " + post.toLowerCase().replace(/\s+/g," ") + " ";
+    var asked = [];
+    TERMS.forEach(function(t){
+      var hits = 0;
+      t.a.forEach(function(a){ hits += count(p, a); });
+      if (hits > 0){
+        var has = t.a.some(function(a){ return h.indexOf(a) !== -1; });
+        asked.push({k:t.k, hits:hits, has:has});
+      }
+    });
+    asked.sort(function(x, y){ return y.hits - x.hits; });
+    var have = asked.filter(function(t){ return t.has; });
+    var miss = asked.filter(function(t){ return !t.has; });
+    var score = asked.length ? Math.round(have.length / asked.length * 100) : 0;
+    var title = "";
+    var pl = post.toLowerCase();
+    TITLES.forEach(function(t){ if (!title && pl.indexOf(t.toLowerCase()) !== -1) title = t; });
+    if (!title){
+      var first = post.split(/\n/).map(function(s){ return s.trim(); }).filter(Boolean)[0] || "";
+      title = first.length && first.length < 60 ? first.replace(/[.:]$/,"") : "Email Marketing Specialist";
+    }
+    var lead = have.map(function(t){ return t.k; });
+    TERMS.forEach(function(t){
+      if (lead.indexOf(t.k) === -1 && t.a.some(function(a){ return h.indexOf(a) !== -1; })) lead.push(t.k);
+    });
+    lead = lead.slice(0, 3);
+    var headline = title + (lead.length ? " | " + lead.join(" · ") : "");
+    return {score:score, asked:asked, have:have, miss:miss.slice(0, 3), title:title, headline:headline};
+  }
+
+  function renderResult(r){
+    var box = document.getElementById("rt-result");
+    box.innerHTML = "";
+    if (!r.asked.length){
+      box.appendChild(el("p", {text:"No email or lifecycle keywords found in that posting. Paste the requirements section and check again."}));
+      return;
+    }
+    var meter = el("div", {cls:"meter", role:"img", "aria-label":"Match " + r.score + " percent"}, [el("i", {style:"width:" + r.score + "%"})]);
+    box.appendChild(el("div", null, [
+      el("div", {cls:"score"}, [el("span", {cls:"n", text:r.score + "%"}), el("span", {cls:"small", text:"match · you cover " + r.have.length + " of the " + r.asked.length + " things this posting asks for"})]),
+      meter
+    ]));
+    var missWrap = el("div");
+    missWrap.appendChild(el("label", {text:r.miss.length ? "Missing, ranked by how often the posting mentions them" : "Missing"}));
+    var mc = el("div", {cls:"chips"});
+    if (r.miss.length) r.miss.forEach(function(t){ mc.appendChild(el("span", {cls:"chip miss", text:t.k})); });
+    else mc.appendChild(el("span", {cls:"small", text:"Nothing major. Your headline covers what the posting asks for."}));
+    missWrap.appendChild(mc);
+    box.appendChild(missWrap);
+    if (r.have.length){
+      var haveWrap = el("div");
+      haveWrap.appendChild(el("label", {text:"Already on your resume"}));
+      var hc = el("div", {cls:"chips"});
+      r.have.forEach(function(t){ hc.appendChild(el("span", {cls:"chip have", text:t.k})); });
+      haveWrap.appendChild(hc);
+      box.appendChild(haveWrap);
+    }
+    var hw = el("div");
+    hw.appendChild(el("label", {text:"Rewritten headline"}));
+    var out = el("div", {cls:"headline-out", id:"rt-headline", text:r.headline});
+    hw.appendChild(out);
+    var copy = el("button", {cls:"btn small ghost", type:"button", text:"Copy headline"});
+    var copied = el("span", {cls:"note", "aria-live":"polite"});
+    copy.addEventListener("click", function(){
+      try {
+        navigator.clipboard.writeText(r.headline).then(function(){ copied.textContent = "Copied"; }, function(){ copied.textContent = "Select the text above to copy it"; });
+      } catch(e){ copied.textContent = "Select the text above to copy it"; }
+    });
+    hw.appendChild(el("div", {cls:"row", style:"margin-top:8px"}, [copy, copied]));
+    box.appendChild(hw);
+    if (r.miss.length){
+      box.appendChild(el("p", {cls:"small", text:"Add a missing keyword only if it's true for you. If it isn't, name the gap and how fast you'll close it in the first lines of your cover letter."}));
+    }
+  }
+
+  var EX_HEAD = "Email Developer | HTML/CSS Email Builds | Cross-Client QA";
+  var EX_POST = "Lifecycle Marketing Coordinator, CRM (remote). Build, QA and launch email, push and SMS campaigns in an ESP. Check content, links, targeting and personalization before every launch. Braze experience preferred. Exposure to segmentation, personalization and A/B testing, plus basic campaign reporting. Support automated lifecycle journeys: onboarding, retention and win-back. Use AI tools to strengthen QA.";
+  var headEl = document.getElementById("rt-head");
+  var postEl = document.getElementById("rt-post");
+  headEl.value = EX_HEAD;
+  postEl.value = EX_POST;
+  document.getElementById("rt-form").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("rt-tag").hidden = (headEl.value === EX_HEAD && postEl.value === EX_POST) ? false : true;
+    renderResult(analyze(headEl.value, postEl.value));
+  });
+  document.getElementById("rt-clear").addEventListener("click", function(){
+    headEl.value = ""; postEl.value = "";
+    document.getElementById("rt-tag").hidden = true;
+    document.getElementById("rt-result").innerHTML = "";
+    var p = el("p", {cls:"small", text:"Paste your headline and a posting, then press Check the match."});
+    document.getElementById("rt-result").appendChild(p);
+    headEl.focus();
+  });
+
+  /* ---------- forms: Netlify on the live site, preview message here ---------- */
+  var LIVE = /netlify\.app$/i.test(location.hostname) || /tonylucio/i.test(location.hostname);
+  function encode(data){
+    return Object.keys(data).map(function(k){ return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]); }).join("&");
+  }
+  function wire(formId, noteId, okText, extra){
+    var f = document.getElementById(formId);
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var note = document.getElementById(noteId);
+      if (f.checkValidity && !f.checkValidity()){
+        note.className = "note"; note.textContent = "Please fill in the required field first.";
+        return;
+      }
+      var data = {};
+      new FormData(f).forEach(function(v, k){ data[k] = v; });
+      if (extra) extra(data, e);
+      if (!LIVE){
+        note.className = "note";
+        note.textContent = "Preview only: on the live site this goes straight to Tony.";
+        return;
+      }
+      fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:encode(data)})
+        .then(function(res){
+          if (!res.ok) throw new Error(res.status);
+          note.className = "note ok"; note.textContent = okText;
+          if (formId !== "useful-form") f.reset();
+        })
+        .catch(function(){ note.className = "note"; note.textContent = "That didn't send. Check your connection and try again."; });
+    });
+  }
+  wire("useful-form", "useful-note", "Thanks. That tells us what to build next.", function(data, e){
+    var btn = e.submitter;
+    data.vote = btn && btn.value ? btn.value : "yes";
+    data.card = currentCard;
+  });
+  wire("report-form", "report-note", "You're on the list for Monday.");
+  wire("story-form", "story-note", "Thanks. Tony reviews every story before it goes live.");
+  wire("stuck-form", "stuck-note", "Got it. Thanks for telling us.");
+
+  /* ---------- initial state ---------- */
+  renderSkills("in");
+  renderJobs("remote");
+  renderResult(analyze(EX_HEAD, EX_POST));
+  fromHash();
+})();
+</script>
+</body>
+</html>
